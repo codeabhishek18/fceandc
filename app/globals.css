@@ -2,26 +2,61 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
   }
 }
 
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+body
+{
+  margin: 0;
 }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
+*
+{
+  box-sizing: border-box;
+}
+
+:root
+{
+  --primary-color: #3e4d42;
+  --secondary-color: #f0f0f0;
+  --box-shadow: 
+    2px 2px 5px rgba(0, 0, 0, 0.1),
+    4px 4px 10px rgba(0, 0, 0, 0.15), 
+    6px 6px 15px rgba(0, 0, 0, 0.2);
+  /* --primary-bg: rgb(240, 240, 240); */
+  --primary-border: rgb(82, 82, 82);
+  --active-bg: #d3c7eb;
+  --alert-color: #D4313D;
+  --success-color: #3DC296;
+  --success-bg: rgb(241, 251, 234);
+  --alert-bg: #f7c3ce;
+  --warning-color: rgb(252, 215, 52);
+  --gold-color: #daa520
+}
+
+::-webkit-scrollbar 
+{
+  width: 5px;
+}
+
+::-webkit-scrollbar-track 
+{
+  background: black;
+}
+
+::-webkit-scrollbar-thumb 
+{
+  background: rgb(66, 66, 66);
+}
+
+::-webkit-scrollbar-thumb:hover 
+{
+  background: black;
 }

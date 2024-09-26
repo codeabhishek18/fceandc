@@ -1,0 +1,70 @@
+.container
+{
+    position: relative;
+    height: 585px;
+    width: 420px;
+}
+
+.certificate
+{
+    height: 585px;
+    width: 420px;
+}
+
+.name, .course, .date
+{
+    position: absolute;
+    width: 100%;
+    left: 50%;
+    text-align: center;
+    transform: translateX(-50%);
+    color: var(--gold-color);
+}
+
+.name
+{
+    top: 270px;
+    font-size: 22px;
+    font-weight: 600;
+}
+
+.course
+{
+    top: 330px;
+    font-weight: 600;
+}
+
+.date
+{
+    font-size: 12px;
+    left: 100px;
+    top: 460px;
+}
+
+@media screen and (max-width: 450px) 
+{
+    .container, .certificate
+    {
+        height: 520px;
+        width: 350px;
+    }
+
+    .name
+    {
+        top: 240px;
+        font-size: 18px;
+    }
+
+    .course
+    {
+        top: 292px;
+        font-size: 14px;
+    }
+
+    .date
+    {
+        top: 410px;
+        left: 90px;
+        font-size: 10px;
+    }
+}

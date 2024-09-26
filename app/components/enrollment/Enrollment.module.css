@@ -1,0 +1,45 @@
+.container
+{
+    background-color: var(--primary-element);
+    width: 100%;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 5px;
+    box-shadow: var(--box-shadow);
+    color: white;
+}
+
+.contact, .email, .name
+{
+    font-size: 14px;
+    font-weight: 500;
+    margin: 5px;
+}
+
+.buttons
+{
+    display: flex;
+    column-gap: 10px;
+}
+
+.button
+{
+    margin: 0;
+    border: 1px solid var(--primary-border);
+    color: white;
+    font-size: 14px;
+    font-weight: 500;
+    border-radius: 5px;
+    background: none;
+    padding: 5px;
+}
+
+.button:hover
+{
+    cursor: pointer;
+    background-color: var(--alert-color);
+    border: 1px solid var(--alert-color);
+    color: var(--secondary-color);
+}

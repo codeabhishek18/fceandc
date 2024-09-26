@@ -1,0 +1,146 @@
+.container
+{
+    height: 78vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border-radius: 5px;
+    background-color: var(--primary-bg);
+}
+
+.header
+{
+    padding: 20px 10px;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    background-color: var(--primary-element);
+    box-shadow: var(--box-shadow);
+    column-gap: 10px;
+}
+
+.admin
+{
+    height: 32px;
+    width: fit-content;
+}
+
+.title
+{
+    font-size: 15px;
+    color: white;
+    margin: 0;
+    font-weight: 500;
+}
+
+.footer
+{
+    display: flex;
+    align-items: center;
+    column-gap: 10px;
+    padding: 10px;
+}
+
+.box
+{
+    width: 100%;
+    font-size: 12px;
+    border-radius: 5px;
+    background-color: var(--primary-element);
+}
+
+.send
+{
+    padding: 7px 10px;
+    border: 0;
+    width: 60px;
+    background-color: var(--alert-color);
+    border-radius: 5px;
+    color: var(--secondary-color);
+    border: 1px solid var(--alert-color);
+    font-size: 12px;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+.fints
+{
+    height: 24px;
+    width: fit-content;
+}
+
+.spinner
+{
+    display: flex;
+    justify-content: center;
+}
+
+.messages
+{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
+    padding: 10px;
+    overflow-y: scroll;
+}
+
+.dateWrapper
+{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin: 15px 0;
+}
+
+.chatDate
+{
+    width: fit-content;
+    background-color: white;
+    padding: 2px 8px;
+    border-radius: 5px;
+    font-size: 12px;
+}
+
+.message
+{
+    width: 100%;
+    display: flex;
+}
+
+.left
+{
+    justify-content: flex-start;
+}
+
+.right
+{
+    justify-content: flex-end;
+}
+
+@media screen and (max-width: 520px) 
+{
+    .container
+    {
+        bottom: 130px;
+    }    
+}
+
+@media screen and (max-width: 420px) 
+{
+    .wrapper
+    {
+        padding: 0 20px;
+    }
+
+    .container
+    { 
+        right: 5%;
+        height: 60%;
+        width: 90%;
+    }    
+}
+
+

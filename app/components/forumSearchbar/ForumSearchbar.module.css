@@ -1,0 +1,40 @@
+.container
+{
+    border-radius: 8px;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    column-gap: 20px;
+    background-color: var(--primary-element);
+    box-shadow: var(--box-shadow);
+    z-index: 1;
+}
+
+.input
+{
+    width: 100%;
+    font-size: 14px;
+    background-color: var(--primary-bg);
+    border-radius: 5px;
+}
+
+.clear
+{
+    padding: 7px;
+    width: 70px;
+    font-size: 14px;
+    font-weight: 500;
+    margin: 0;
+    border: 1px solid var(--primary-border);
+    background: none;
+    border-radius: 5px;
+    color: white;
+}
+
+.clear:hover
+{
+    border: 1px solid var(--alert-color);
+    background-color: var(--alert-color);
+    color: var(--secondary-color);
+    cursor: pointer;
+}

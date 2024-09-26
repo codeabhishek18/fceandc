@@ -1,0 +1,64 @@
+.container
+{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
+    color: white;
+}
+
+.title
+{
+    margin: 0;
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.header
+{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    column-gap: 30px;
+}
+
+.footer
+{
+    display: flex;
+    column-gap: 8px;
+}
+
+.deleteIcon
+{
+    height: 24px;
+    width: fit-content;
+    cursor: pointer;
+}
+
+.author
+{
+    margin: 0;
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--primary-border)
+}
+
+.keywords
+{
+    width: 100%;
+    display: flex;
+    column-gap: 10px;
+    row-gap: 10px;
+}
+
+.key
+{
+    height: fit-content;
+    margin: 0;
+    padding: 7px;
+    border-radius: 5px;
+    font-size: 13px;
+    position: relative;
+    background-color: var(--primary-border);
+    color: white;
+}

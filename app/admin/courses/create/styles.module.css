@@ -1,0 +1,31 @@
+.container
+{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    row-gap: 15px;
+}
+
+.header
+{
+    font-size: 32px;
+    font-weight: 600;
+    margin: 10px 0 20px;
+    color: var(--alert-color);
+}
+
+.input
+{
+    width: 100%;
+}
+
+.create
+{
+    background-color: var(--primary-color);
+    width: fit-content;
+    border-radius: 5px;
+    padding: 15px;
+    color: white;
+    font-weight: 500;
+    font-size: 14px;
+}

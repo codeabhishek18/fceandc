@@ -1,0 +1,45 @@
+.wrapper
+{
+    height: 100vh;
+    width: 90px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    row-gap: 20px;
+    background-color: var(--secondary-color);
+    margin: 0;
+    position: fixed;
+    left: 0;
+}
+
+.container
+{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 75px;
+    padding: 10px  0;
+    cursor: pointer;
+}
+
+.list
+{
+    margin: 0;
+    font-size: 12px;
+    font-weight: 500;
+}
+
+.icon
+{
+    height: 30px;
+    width: fit-content;
+}
+
+.active
+{
+    background-color: white;
+    border-radius: 5px;
+    color: black;   
+}

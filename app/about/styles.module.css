@@ -1,0 +1,30 @@
+.wrapper
+{
+    background-color: var(--primary-bg);
+}
+
+.container
+{
+    padding: 100px 10vw 30px;
+    display: flex;
+    flex-direction: column;
+    row-gap: 20px;
+}
+
+.video
+{
+    background-color: var(--primary-element);
+    padding: 60px;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+@media screen and (max-width: 450px) 
+{
+    .container
+    {
+        padding: 100px 20px  20px;
+    }    
+}

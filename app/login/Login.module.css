@@ -2,34 +2,35 @@
 {
     width: 100%;
     height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    background-color: var(--primary-color);
     justify-content: center;
-    background-color: var(--primary-bg);
 }
 
 .container
 {
     width: 400px;
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: var(--box-shadow);
+    background-color: white;
+}
+
+.wrapper, .container, .header
+{
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 40px;
-    border-radius: 8px;
-    background-color: var(--primary-element);
-    box-shadow: var(--box-shadow);
-    color: white;
 }
 
 .header
 {
     margin-bottom: 20px;
+    row-gap: 10px;
 }
 
 .logo
 {
-    height: 60px;
+    height: 30px;
     width: fit-content;
 }
 
@@ -59,23 +60,11 @@
 {
     padding: 10px 0;
     width: 100%;
-    background: none;
-    color: var(--secondary-color); 
-    background-color: var(--primary-bg);
+    background-color: var(--primary-color);
+    color: white;
     border-radius: 5px;
     font-size: 16px;
     font-weight: 500;
-}
-
-.submit:hover
-{
-    background-color: var(--alert-color);
-    color: var(--secondary-color);
-}
-
-.submit:hover, .google:hover
-{
-    cursor: pointer;
 }
 
 .forgotpassword

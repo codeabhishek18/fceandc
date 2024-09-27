@@ -34,14 +34,14 @@ const Navbar = () =>
                 <Image className={styles.logo} src={logo} alt='logo' onClick={()=> router.push('/')}/>
               
                 <div className={styles.links}>
-                    <Link className={styles.link} href='/dashoard'>Dashboard</Link>
+                    <Link className={styles.link} href='/dashboard'>Dashboard</Link>
                     <Link className={styles.link} href='/courses'>Courses</Link>
                     <Link className={styles.link} href='/blogs'>Blogs</Link>
                     <Link className={styles.link} href='/about'>About</Link>
                 </div>
                 <div className={styles.controls}>
-                    <button className={styles.route}>Login</button>
-                    <button className={styles.route}>Signup</button>
+                    <button className={styles.route} onClick={()=> router.push('/login')}>Login</button>
+                    <button className={styles.route} onClick={()=> router.push('/signup')}>Signup</button>
                 </div>
                 <HamburgerMenu setShowSlider={setShowSlider}/>
             </div>

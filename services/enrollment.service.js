@@ -42,6 +42,18 @@ class enrollmentService
             throw error
         }
     }
+
+    async updateAccess(enrollmentId, access)
+    {
+        try
+        {
+            return await Enrollment.findByIdAndUpdate(enrollmentId, {$set : {access}})
+        }
+        catch(error)
+        {
+            throw error
+        }
+    }
 }
 
 export default enrollmentService

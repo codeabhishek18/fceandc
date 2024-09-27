@@ -51,7 +51,8 @@
 {
     background-color: var(--primary-color);
     border-radius: 5px;
-    padding: 10px;
+    font-size: 16px;
+    padding: 5px 10px;
     color: white;
 }
 
@@ -85,23 +86,6 @@
     margin: 0;
     padding: 10px;
     border-radius: 5px;
-}
-
-.logout
-{
-    margin: 0;
-    font-size: 14px;
-    padding: 10px;
-    border: 1px solid var(--alert-color);
-    background-color: var(--alert-color);
-    color: var(--secondary-color);
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-.logout:hover
-{
-    background-color: rgb(206, 8, 8);
 }
 
 .title

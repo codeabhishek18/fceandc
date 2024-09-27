@@ -2,12 +2,13 @@ import { Poppins } from "next/font/google";
 import "./globals.css";
 import SessionWrapper from "./SessionWrappper";
 import ReduxProvider from "./ReduxProvider";
+import { Toaster } from "sonner";
 
 
 export const metadata = 
 {
-  title: "FINTS - FinCrime Trusted Source | Expert Solutions for Financial Crime Prevention",
-  description: "FinCrime Trusted Source",
+  title: "FCE&C",
+  description: "FCE&C - FinCrime Compliance Education & Consultancy",
 };
 
 export default async function RootLayout({ children }) 
@@ -22,9 +23,10 @@ export default async function RootLayout({ children })
       <meta property="og:url" content="https://www.fintsacademy.com"/>
       <SessionWrapper>
         <ReduxProvider>
-            <body>
-              <main>{children}</main>  
-            </body>
+          <body>
+            {children}
+            <Toaster toastOptions={{ style:{background : '#f0f0f0', color: '#435968', boxShadow:'var(--box-shadow)', padding: '30px ', fontSize: '16px'}}}/> 
+          </body>
         </ReduxProvider>
       </SessionWrapper>
     </html>

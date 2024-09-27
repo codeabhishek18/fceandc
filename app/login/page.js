@@ -1,7 +1,7 @@
 'use client'
 
 import styles from './Login.module.css'
-import fints from '../../assets/fints.png'
+import logo from '../../assets/logo.png'
 import Image from 'next/image';
 import successicon from '../../assets/success-icon.png'
 import erroricon from '../../assets/error-icon.png'
@@ -23,8 +23,6 @@ const Login = () =>
     const router = useRouter();
     const callbackUrl = searchParams.get('callbackUrl') || '/dashboard'
     const error = searchParams.get('error');
-
-    console.log(callbackUrl)
 
     useEffect(() => 
     {
@@ -82,16 +80,15 @@ const Login = () =>
 
     return(
         <div className={styles.wrapper}>
-            <Header/>
            <div className={styles.container}> 
                 <div className={styles.header}>
-                    <Image className={styles.logo} src={fints} alt='logo'/>
+                    <Image className={styles.logo} src={logo} alt='logo'/>
                     <p className={styles.welcome}>Welcome back!</p>
                 </div>
                 <div className={styles.form}>
                     <form className={styles.form} onSubmit={handleSubmit}>
-                        <TextField className={styles.inputs} size='small' label="Email" type="text" name="email" variant='filled'/>
-                        <TextField className={styles.inputs} size='small' label="Password" type="password" name="password" variant='filled'/>
+                        <TextField className={styles.inputs} color='grey' size='small' label="Email" type="text" name="email" variant='filled'/>
+                        <TextField className={styles.inputs} color='grey' size='small' label="Password" type="password" name="password" variant='filled'/>
                         {isError && 
                         <div className={styles.error}>
                             <Image className={styles.erroricon} src={erroricon} alt='error'/>

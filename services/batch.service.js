@@ -4,6 +4,7 @@ import { User } from "@/models/user.model.js";
 import { Session } from "@/models/session.model.js";
 import { Mentor } from "@/models/mentor.model.js";
 import { Feedback } from "@/models/feedback.model.js";
+import { Enrollment } from "@/models/enrollment.model.js";
 
 class batchService
 {
@@ -28,7 +29,7 @@ class batchService
         {
             const batch = await Batch.findOne({title})
             .populate({path: 'course', model: Course, populate:{path: 'feedbacks', model: Feedback}})
-            .populate({path: 'enrollments', model: User})
+            .populate({path: 'enrollments', model: Enrollment, populate: {path: 'user', model: User}})
             .populate({path: 'sessions', model: Session})
             .populate({path: 'mentor', model: Mentor})
             return batch 
@@ -36,6 +37,18 @@ class batchService
         catch(error)
         {
             throw new Error('Failed to fetch batches')
+        }
+    }
+
+    async updateBatchAccess(batchId, access)
+    {
+        try
+        {
+            return await Batch.findByIdAndUpdate(batchId, {$set : {access}});
+        }
+        catch(error)
+        {
+            throw error
         }
     }
 

@@ -15,6 +15,15 @@
     padding: 30px 10vw;
 }
 
+.spinner
+{
+    min-height: 90vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 .navbar
 {
     width: 100%;

@@ -2,7 +2,7 @@
 
 import styles from './styles.module.css'
 import userIcon from '@/assets/user.png'
-import fints from '@/assets/fints.png'
+import logo from '@/assets/logo.png'
 import { useEffect, useState } from 'react'
 import axios from 'axios'
 import Image from 'next/image'
@@ -85,7 +85,7 @@ const Chat = ({type, userChatId, getChatUsers}) =>
                     <Image className={styles.admin} src={userIcon} alt='user'/>
                     {type === "admin" ?
                     (username && <div className={styles.title}>{username}</div>) :
-                    <Image className={styles.fints} src={fints} alt='fints'/>}
+                    <Image className={styles.logo} src={logo} alt='logo'/>}
                 </div>
                 
                 {!isLoading ? 

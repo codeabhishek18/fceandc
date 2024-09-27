@@ -1,7 +1,7 @@
 'use client'
 
 import styles from './Register.module.css'
-import fints from '../../assets/fints.png'
+import logo from '../../assets/logo.png'
 import Image from 'next/image';
 import successicon from '../../assets/success-icon.png'
 import erroricon from '../../assets/error-icon.png'
@@ -93,16 +93,15 @@ const Signup = () =>
 
     return(
         <div className={styles.wrapper}>
-            <Header/>
             <div className={styles.container}> 
                 <div className={styles.header}>
-                    <Image className={styles.logo} src={fints} alt='logo'/>
+                    <Image className={styles.logo} src={logo} alt='logo'/>
                 </div>
                 <div className={styles.form}>
                     <form className={styles.form} onSubmit={handleSubmit}>
-                        <TextField className={styles.inputs} size='small' label="Name" type="text" name="name" variant='filled' />
-                        <TextField className={styles.inputs} size='small' label="Email" type="text" name="email" variant='filled' />
-                        <TextField className={styles.inputs} size='small' label="Password" type="text" name="password" variant='filled' />
+                        <TextField className={styles.inputs} size='small' color='grey' label="Name" type="text" name="name" variant='filled' />
+                        <TextField className={styles.inputs} size='small' color='grey' label="Email" type="text" name="email" variant='filled' />
+                        <TextField className={styles.inputs} size='small' color='grey' label="Password" type="text" name="password" variant='filled' />
                         {error && 
                         <div className={styles.error}>
                             <Image className={styles.erroricon} src={erroricon} alt='error'/>

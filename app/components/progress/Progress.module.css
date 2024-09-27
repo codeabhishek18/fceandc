@@ -7,10 +7,11 @@
     row-gap: 15px;
     border-radius: 5px;
     padding: 20px;
-    background-color: var(--primary-color);
+    background: var(--primary-color);
     box-shadow: var(--box-shadow);
     color: var(--secondary-color);
     font-size: 16px;
+    position: relative;
 }
 
 .header, .footer
@@ -35,7 +36,6 @@
 {
     font-size: 28px;
     width: 100%;
-    padding: 8px;
     font-weight: 600;
     margin: 0;
     text-align: center;
@@ -74,7 +74,7 @@
     flex-direction: column;
     row-gap: 10px;
     border-radius: 5px;
-    background-color: var(--secondary-color);
+    background: var(--secondary-color);
     color: black;
     box-shadow: var(--box-shadow);
     font-size: 15px;
@@ -95,6 +95,46 @@
     background: none;
     font-size: 12px;
     padding: 0 5px;
+}
+
+.access
+{
+    background-color: var(--secondary-color);
+    color: black;
+    text-align: center;
+    width: 100%;
+    border-radius: 5px;
+    font-weight: 500;
+    padding: 5px;
+}
+
+.accessControl
+{
+    position: absolute;
+    right: 35px;
+    top: 20px;
+    padding: 10px;
+    background-color: var(--secondary-color);
+    font-size: 14px;
+    width: fit-content;
+    border-radius: 5px;
+    font-size: 15px;
+    color: black;
+}
+
+.accessControl:hover
+{
+    background-color: white;
+}
+
+.more
+{
+    height: 20px;
+    width: fit-content;
+    position: absolute;
+    right: 15px;
+    top: 30px;
+    cursor: pointer;
 }
 
 .connect:hover

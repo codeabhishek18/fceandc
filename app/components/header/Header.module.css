@@ -24,6 +24,7 @@
     position: absolute;
     right: 20px;
     top: 90px;
+    background-color: white;
     box-shadow: var(--box-shadow);
     border-radius: 8px;
 }

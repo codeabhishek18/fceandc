@@ -21,7 +21,7 @@ const Batch = () =>
     {
         try
         {
-            setIsLoading(true);
+            // setIsLoading(true);
             const url = `/api/batch/${batchId}`
             const response = await axios.get(url);
             setBatch(response.data);
@@ -41,10 +41,18 @@ const Batch = () =>
 
      const updateSessionStatus = async (sessionId, status) =>
     {
-        const updatedStatus = status === 'Upcoming' ? 'Completed' : 'Upcoming'
-        const url = `/api/session/${sessionId}`
-        await axios.put(url, {status : updatedStatus});
-        getBatch();
+        try
+        {
+            const updatedStatus = status === 'Upcoming' ? 'Completed' : 'Upcoming'
+            const url = `/api/session/${sessionId}`
+            await axios.put(url, {status : updatedStatus});
+            toast(`Session updated to ${updatedStatus}`)
+            getBatch();
+        }
+        catch(error)
+        {
+            toast(error.message)
+        }
     }
 
     // const removeBatch = async (id) =>
@@ -71,7 +79,7 @@ const Batch = () =>
                 
                 <div className={styles.dashboard}>
                     <div className={styles.progress}>
-                        <Progress batchData={batch} level='admin'/>
+                        <Progress batchData={batch} level='admin' getBatch={getBatch}/>
                     </div>
                     <div className={styles.list}>
                     {batch.sessions.map((session, index) =>
@@ -87,9 +95,9 @@ const Batch = () =>
 
                 <div className={styles.enrollments}>
                 {batch.enrollments.length ? 
-                batch.enrollments.map((user)=>
+                batch.enrollments.map((enrollment)=>
                 (
-                    <Enrollment user={user}/>
+                    <Enrollment enrollment={enrollment} batch={batch} getBatch={getBatch}/>
                 )) : 
                 <p className={styles.noStudents}>No Enrollments</p>
                 }

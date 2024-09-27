@@ -5,6 +5,7 @@ import { Batch } from '@/models/batch.model';
 import { Test } from '@/models/test.model';
 import { Chat } from '@/models/chat.model';
 import { Message } from '@/models/message.model';
+import { Course } from '@/models/course.model';
 
 class userService 
 {
@@ -87,6 +88,11 @@ class userService
                 [{
                     path: 'batch', 
                     model: Batch,
+                    populate:
+                    {
+                        path: 'course',
+                        model: Course
+                    }
                 },
                 {
                     path: 'assessments',

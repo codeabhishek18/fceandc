@@ -30,7 +30,7 @@ const CourseDetail = ({course}) =>
             <div className={styles.lectures}>
                 {course.lectures.map((lecture, index)=>
                 (
-                    <Lecturecard level='user' key={lecture._id} lecture={lecture} index={index}/>
+                    <Lecturecard level='visitor' key={lecture._id} lecture={lecture} index={index}/>
                 ))}
             </div>  
 

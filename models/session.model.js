@@ -6,12 +6,12 @@ const sessionSchema = new Schema({
         type: Number,
         required: true
     },
-    description:
+    title:
     {
         type: String,
         required: true
     },
-    duration: String,
+    recording: String,
     status:
     {
         type : String,

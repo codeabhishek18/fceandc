@@ -3,7 +3,6 @@
 import styles from './styles.module.css'
 import dashboard from '@/assets/dashboard.png'
 import forum from '@/assets/forum.png'
-import settings from '@/assets/settings.png'
 import Image from 'next/image'
 import { useRouter } from 'next/navigation'
 import { useState } from 'react'

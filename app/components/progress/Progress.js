@@ -8,6 +8,8 @@ import { useRouter } from 'next/navigation';
 import PieChartWithPaddingAngle from '../piechart/PieChart';
 import { useSession } from 'next-auth/react';
 import { calculateResult } from '@/utility/calculateScores';
+import more from '@/assets/more.png'
+import { toast } from 'sonner';
 
 const options = { year: 'numeric', month: 'long', day: 'numeric' };
 export const pendingSessions = (sessions) =>
@@ -15,14 +17,13 @@ export const pendingSessions = (sessions) =>
     return sessions.filter((session) => session.status === 'Upcoming').length
 }
 
-const Progress = ({batchData, level, assessments}) =>
+const Progress = ({batchData, level, assessments, getBatch}) =>
 {
     const [ whatsapplink, setWhatsapplink ] = useState('');
     const [ zoomLink, setZoomLink ] = useState('');
     const [ showwlink, setShowWlink ] = useState(false);
     const [ showzlink, setShowZlink ] = useState(false);
-    const [ showCertificate, setShowCertificate ] = useState(false);
-    const divRef = useRef(null);
+    const [ showAccess, setShowAccess ] = useState(false);
     const router = useRouter();
     const { data } = useSession();
     
@@ -42,10 +43,27 @@ const Progress = ({batchData, level, assessments}) =>
         setZoomLink('');
     }
 
+    const handleBatchAccess = async () =>
+    {
+        try
+        {
+            const grant = batchData.access === 'true' ? 'false' : 'true'
+            const url =  `/api/batch/${batchData._id}`
+            const response = await axios.put(url, {access: grant})
+            toast(response.data.message || response.data.error);
+            getBatch();
+        }
+        catch(error)
+        {
+            toast(error.message)
+        }
+    }
+
     return(
-        <div className={styles.container}>
+        <div className={styles.container} onClick={()=> setShowAccess(false)}>
+            {level === 'admin' && <Image className={styles.more} src={more} alt='icon' onClick={(e)=> {e.stopPropagation(); setShowAccess(true);}}/>}
             <div className={styles.header}>
-                <h1 className={styles.courseTitle}>{batchData.title}</h1>
+                <h1 className={styles.courseTitle}>{batchData.title.split('-').join(' - ')}</h1>
                 <p className={styles.dates}>{new Date(batchData.startDate).toLocaleDateString('en-US', options)} - {new Date(batchData.endDate).toLocaleDateString('en-US', options)} </p>
             </div>
             <div className={styles.progress}>
@@ -79,6 +97,10 @@ const Progress = ({batchData, level, assessments}) =>
                     <button className={styles.button} onClick={addZoomLink}>Add</button>
                 </div>}
             </div>
+
+           {showAccess && <button className={styles.accessControl}  onClick={handleBatchAccess}>{batchData.access ==='true' ? 'Revoke Batch Acess' : 'Grant Batch Access'}</button>}
+            
+           {level === 'admin' && <p className={styles.access}>{batchData.access ===  'true' ? 'Accessible' : 'Inaccessible'}</p>}
          </div>
     )
 }

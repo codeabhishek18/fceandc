@@ -42,6 +42,8 @@ const Dashboard = () =>
         
             
     }, [status]);
+
+    console.log(userData)
     
 
     if(status === 'loading' || isLoading)

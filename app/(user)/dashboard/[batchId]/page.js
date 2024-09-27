@@ -8,10 +8,12 @@ import { useSession } from "next-auth/react"
 import Image from 'next/image';
 import { useParams, usePathname, useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
-import feedback from '@/assets/feedback.png'
+import feedback from '@/assets/logo.png'
 import { CircularProgress } from '@mui/material';
 import Feedback from '@/app/components/feedback/Feedback';
 import AssessmentCard from '@/app/components/assessmentCard/assessmentCard';
+import Lecturecard from '@/app/components/lectureCard/LectureCard';
+import { toast } from 'sonner';
 
 const Dashboard = () =>
 {
@@ -20,7 +22,7 @@ const Dashboard = () =>
     const [ batchData, setBatchData ] = useState(null);
     const [ isLoading, setIsLoading ] = useState(true)
     const [ activeAgenda, setActiveAgenda ] = useState(-1);
-    const [ assessments, setAssessments ] = useState(null);
+    const [ enrollment, setEnrollment ] = useState(null);
     const [ feedbackForm, setFeedbackForm ] = useState(false);
     const [ feedbackTooltip, setFeedbackTooltip ] = useState(false);
     const [ hideFeedback, setHideFeedback ] = useState(true);
@@ -34,6 +36,11 @@ const Dashboard = () =>
         {
             const url = `/api/batch/${batchId}`
             const response = await axios.get(url);
+            if(response.data.access === 'false')
+            {
+                router.push('/dashboard')
+                toast('Access Denied')
+            }
             setBatchData(response.data)
             checkfeedback(response.data)
         }
@@ -56,8 +63,8 @@ const Dashboard = () =>
         {
             const url = `/api/user/${data.user.id}`
             const response = await axios.get(url);
-            const batchAssessments = response.data.enrollments.find((enrollment) => enrollment.batch.title === batchTitle);
-            setAssessments(batchAssessments);
+            const batchEnrollment = response.data.enrollments.find((enrollment) => enrollment.batch.title === batchTitle);
+            setEnrollment(batchEnrollment);
             setIsLoading(false);
         }
         catch(error)
@@ -87,44 +94,48 @@ const Dashboard = () =>
             </div>    
         )
 
+        console.log(enrollment)
+
     return(
         <div onClick={()=> setActiveAgenda(-1)} className={styles.wrapper}>
         
             {batchData &&
             <div className={styles.container} >
                 <div className={styles.progress}>
-                    <Progress batchData={batchData} level='user' assessments={assessments}/>
+                    <Progress batchData={batchData} level='user' enrollment={enrollment}/>
                 </div>
 
                 <div className={styles.practicals}>
+                    {enrollment.access === 'true' &&
                     <div className={styles.sessions}>
-                        {batchData.sessions.map((data, index)=>
+                        {batchData.sessions.map((session, index)=>
                         (
-                            <SessionCard session={data} index={index} setActiveAgenda={setActiveAgenda} activeAgenda={activeAgenda} level='user' key={data._id}/>
+                            <div className={styles.sessions}>
+                                <SessionCard session={session} index={index} setActiveAgenda={setActiveAgenda} activeAgenda={activeAgenda} level='user' key={data._id}/>
+                                {session.status === 'Completed' && <Lecturecard lecture={session} level='admin' type='dashboard'/>}
+                            </div>
                         ))}
-                    </div>
-
-                    
+                    </div>}
                 </div>
             </div>}
 
-            <div className={styles.assessmentWrapper}>
-                {assessments.assessments.length > 0 && <p className={styles.header}>Assessments</p>}
-                <div className={styles.assessments}>
-                    {assessments?.assessments?.map((assessment, index)=>
+            {/* <div className={styles.assessmentWrapper}>
+                {enrollment.enrollment.length > 0 && <p className={styles.header}>enrollment</p>}
+                <div className={styles.enrollment}>
+                    {enrollment?.enrollment?.map((assessment, index)=>
                     (
                         <AssessmentCard assessment={assessment} index={index} key={data._id} batchId={batchId}/>
                     )
                 )}
             </div>
-            </div>
+            </div> */}
 
-            {hideFeedback && <Image className={styles.feedback} src={feedback} alt='feedback' onClick={()=> setFeedbackForm(true)} onMouseEnter={()=> setFeedbackTooltip(true)} onMouseLeave={()=> setFeedbackTooltip(false)}/>}
+            {/* {hideFeedback && <Image className={styles.feedback} src={feedback} alt='feedback' onClick={()=> setFeedbackForm(true)} onMouseEnter={()=> setFeedbackTooltip(true)} onMouseLeave={()=> setFeedbackTooltip(false)}/>}
             {feedbackTooltip && <p className={styles.toolTip}>Feedback</p>}
             {feedbackForm && 
             <div className={styles.feedbackForm}>
                 <Feedback setFeedbackForm={setFeedbackForm} courseId={batchData.course._id}/>
-            </div>}
+            </div>} */}
         </div>
     )
 }

@@ -4,6 +4,7 @@ import Image from 'next/image';
 import { FormatDate } from '@/utility/FormatDate';
 import deleteIcon from '@/assets/delete.png'
 import axios from 'axios';
+import { toast } from 'sonner';
 
 const BatchCard = ({type, level, data, participants, removeBatch, batchId}) =>
 {
@@ -21,6 +22,14 @@ const BatchCard = ({type, level, data, participants, removeBatch, batchId}) =>
         {
             console.log(error)
         }
+    }
+
+    const checkAccess = () =>
+    {
+        if(data.access === 'true')
+            return router.push(`/dashboard/${data.title}`)
+        else
+            toast('Access Denied')
     }
 
     return(
@@ -47,7 +56,7 @@ const BatchCard = ({type, level, data, participants, removeBatch, batchId}) =>
                 (type === 'batch' ? 
                 <button className={styles.details} onClick={()=> router.push(`/admin/batches/${data.title}`)}>Details</button> :
                 <button className={styles.details} onClick={()=> router.push(`${pathname}/${batchId}`)}>View scores</button>) : 
-                <button className={styles.details} onClick={()=> router.push(`/dashboard/${data.title}`)}>View</button>}    
+                <button className={styles.details} onClick={checkAccess}>View</button>}    
                 
                 <p className={styles.date}>{FormatDate(data.startDate)}</p>
             </div> 

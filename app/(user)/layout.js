@@ -46,11 +46,9 @@ export default function Layout({ children })
             <Header/>
             {/* <UserPanel/> */}
             
-            <main className={styles.main}>
-                <div className={styles.wrapper}>
-                    {children}
-                </div>
-            </main>
+            <div className={styles.main}>
+                {children}
+            </div>
 
             {/* <Image className={styles.support} src={showChat ? close : chat} alt="chat" onClick={()=> setShowChat(!showChat)}/>
             {showChat &&  

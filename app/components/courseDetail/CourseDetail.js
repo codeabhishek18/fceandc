@@ -23,7 +23,7 @@ const CourseDetail = ({course}) =>
             </div>
             
             <div className={styles.header}>
-                <p className={styles.title}>{course.title}</p>
+                <p className={styles.title}>{course.id.toUpperCase()} <span style={{fontSize: '16px',  fontWeight: '400'}}>( {course.title} )</span></p>
                 <p className={styles.description}>{course.description}</p>
             </div>
 

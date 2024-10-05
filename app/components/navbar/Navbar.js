@@ -20,13 +20,6 @@ const Navbar = () =>
     const session = useSession();
     const { data, status } = useSession();
     const router = useRouter();
-    const [ showDetails, setShowDetails ] = useState(false)
-
-    useEffect(()=>
-    {
-        console.log('load')
-        session.update();
-    },[])
 
     return(
         <div className={styles.container}>
@@ -34,25 +27,19 @@ const Navbar = () =>
                 <Image className={styles.logo} src={logo} alt='logo' onClick={()=> router.push('/')}/>
               
                 <div className={styles.links}>
-                    <Link className={styles.link} href='/dashboard'>Dashboard</Link>
+                    {(data?.user?.role === 'user' || data?.user?.role === 'admin') && <Link className={styles.link} href='/dashboard'>Dashboard</Link>}
                     <Link className={styles.link} href='/courses'>Courses</Link>
-                    <Link className={styles.link} href='/blogs'>Blogs</Link>
+                    {/* <Link className={styles.link} href='/blogs'>Blogs</Link> */}
                     <Link className={styles.link} href='/about'>About</Link>
                 </div>
+                {!data?.user &&
                 <div className={styles.controls}>
                     <button className={styles.route} onClick={()=> router.push('/login')}>Login</button>
                     <button className={styles.route} onClick={()=> router.push('/signup')}>Signup</button>
-                </div>
+                </div>}
                 <HamburgerMenu setShowSlider={setShowSlider}/>
             </div>
 
-            {showDetails && 
-            <div className={styles.user}>
-                <Image className={styles.close} src={close} alt='close' onClick={()=> setShowDetails(false)}/>
-                <p className={styles.name}>{data.user.email}</p>
-                <p className={styles.name}>{data.user.name}</p>
-                <Logout/>
-            </div>}
             {showSlider && 
             <div className={styles.slider}>
                 <SlidingMenu setShowSlider={setShowSlider} />

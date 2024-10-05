@@ -1,7 +1,7 @@
 import dashboard from '@/assets/dashboard.png'
 import batch from '@/assets/batch.png'
 import blog from '@/assets/blog.png'
-import message from '@/assets/message.png'
+import course from '@/assets/course.png'
 import forum from '@/assets/forum.png'
 
 export const adminPanelList = 
@@ -16,7 +16,7 @@ export const adminPanelList =
         id: 2,
         title: 'Courses',
         navigation:'/admin/courses',
-        icon: batch
+        icon: course
     },
     // {
     //     id: 3,
@@ -25,15 +25,15 @@ export const adminPanelList =
     // },
     {
         id: 4,
-        title: 'Messages',
-        navigation:'/admin/messages',
-        icon: message
+        title: 'Forum',
+        navigation:'/admin/forum',
+        icon: forum
     },
     {
         id: 5,
         title: 'Batches',
         navigation:'/admin/batches',
-        icon: forum
+        icon: batch
     },
     {
         id: 6,

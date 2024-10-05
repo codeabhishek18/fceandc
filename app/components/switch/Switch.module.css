@@ -2,7 +2,7 @@
 {
     width: 40px;
     height: 24px;
-    background-color: white;
+    background-color: var(--primary-bg);
     border-radius: 20px;
     position: relative;
     cursor: pointer;
@@ -16,7 +16,7 @@
     position: absolute;
     top: 4px;
     transform: translateY(-50%);
-    background-color: rgb(163, 163, 163);
+    background-color: var(--secondary-color);
 }
 
 .left
@@ -29,5 +29,5 @@
 {
     transform: translateX(20px);
     transition: transform 0.25s ease-in-out;
-    background-color: var(--primary-color);
+    background-color: var(--action-color);
 }

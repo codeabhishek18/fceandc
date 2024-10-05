@@ -78,7 +78,6 @@
 
 .control:nth-child(1)
 {
-    border-bottom: 1px solid var(--primary-color);
 }
 
 .control
@@ -89,6 +88,7 @@
 
 .control:hover
 {
-    background-color: white;
+    background-color: var(--action-color);
+    color: white;
     border-radius: 5px;
 }

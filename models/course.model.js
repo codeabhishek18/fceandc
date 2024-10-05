@@ -31,6 +31,11 @@ const courseSchema = new Schema({
         type: String,
         required: true
     },
+    batches: 
+    [{
+        type: Schema.Types.ObjectId,
+        ref: 'Batch'
+    }],
     lectures:
     [{
         type: Schema.Types.ObjectId,

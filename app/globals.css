@@ -15,6 +15,7 @@
 body
 {
   margin: 0;
+  background-color: var(--primary-bg);
 }
 
 *
@@ -24,8 +25,10 @@ body
 
 :root
 {
-  --primary-color: #344f60;
-  --secondary-color: #f0f0f0;
+  --primary-color: #152a41;
+  --primary-bg: #0B192C;
+  --secondary-color: rgb(221, 221, 221);
+  --action-color: #cca704;
   --box-shadow: 
     2px 2px 5px rgba(0, 0, 0, 0.1),
     4px 4px 10px rgba(0, 0, 0, 0.15), 

@@ -19,12 +19,19 @@
     width: calc(25% - 15px);
     padding: 20px;
     border-radius: 5px;
-    background-color: var(--primary-element);
+    background-color: var(--primary-color);
     color: white;
     display: flex;
     flex-direction: column;
     row-gap: 10px;
     align-items: center;
+    font-size: 16px;
+}
+
+.header
+{
+    color: var(--action-color);
+    font-weight: 500;
 }
 
 .header, .count

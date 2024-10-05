@@ -7,6 +7,7 @@ import styles from './ForumPost.module.css'
 import { useEffect, useState } from 'react'
 import axios from 'axios'
 import { useSession } from 'next-auth/react'
+import { toast } from 'sonner'
 
 const ForumPost = ({getDiscussions, getTopics}) =>
 {
@@ -22,7 +23,8 @@ const ForumPost = ({getDiscussions, getTopics}) =>
         try
         {
             const url = '/api/forum'
-            await axios.post(url, {title, author: user, keywords: keyList});
+            const response = await axios.post(url, {title, author: user, keywords: keyList});
+            toast.success(response.data.message)
             getDiscussions('/api/forum');
             getTopics()
             setTitle('')
@@ -50,7 +52,7 @@ const ForumPost = ({getDiscussions, getTopics}) =>
     return(
         <div className={styles.container}>
             <div className={styles.forumheader}>
-                <TextField size='large' InputProps={{style: { color: '#ffffff'}, sx: {'&.Mui-focused .MuiOutlinedInput-notchedOutline': {borderColor: '#D4313D', color: '#D4313D'}, 'aria-label': 'Without label'}}}
+                <TextField size='large' InputProps={{style: { color: '#ffffff'}, sx: {'&.Mui-focused .MuiOutlinedInput-notchedOutline': {borderColor: '#f0f0f0', color: '#f0f0f0'}}}}
                 placeholder='Post a discusssion' name="title" className={styles.input} value={title} onChange={(e)=> setTitle(e.target.value)} />
 
                 <div className={styles.footer}>

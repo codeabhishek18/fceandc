@@ -1,26 +1,27 @@
 .container
 {
-    width: 40%;
+    width: 100%;
     padding: 30px;
     border-radius: 8px;
     display: flex;
     flex-direction: column;
     row-gap: 20px;
     height: fit-content;
-    background-color: var(--secondary-color);
+    background-color: var(--primary-color);
+    box-shadow: var(--box-shadow);
+    color: white;
 }
 
 .header
 {
     font-size: 18px;
     font-weight: 600;
-    color: var(--primary-border);
+    color: rgb(168, 168, 168);
     margin: 0 0 10px;
 }
 
 .group, .total
 {
-    font-weight: 500;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -28,7 +29,7 @@
 
 .total
 {
-    border-top: 1px solid var(--primary-border);
+    border-top: 1px solid rgb(168, 168, 168);
     padding-top: 16px;
     font-weight: 600;
 }
@@ -56,8 +57,26 @@
     font-weight: 500;
     text-align: center;
     cursor: pointer;
-    background-color: var(--primary-color);
+    background-color: var(--action-color);
     color: white;
-    font-size: 14px;
+}
+
+.spinner
+{
+    display: flex;
+    justify-content: center;
+}
+
+@media screen and (max-width: 450px) 
+{
+    .header
+    {
+        font-size: 16px;
+    }
+
+    .left, .right, .success
+    {
+        font-size: 14px;
+    }
 }
 

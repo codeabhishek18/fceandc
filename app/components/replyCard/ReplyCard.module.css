@@ -24,7 +24,7 @@
 .username
 {
     margin: 0;
-    color: var(--alert-color);
+    color: var(--action-color);
     font-weight: 600;
 }
 
@@ -40,8 +40,8 @@
 {
     margin: 0;
     font-size: 13px;
-    font-weight: 500;
-    color: var(--primary-border);
+    font-weight: 400;
+    color: var(--secondary-color);
 }
 
 .comment

@@ -25,22 +25,24 @@ const ForumSearchbar = ({searchQuery, getDiscussions, handleChange}) =>
     return(
         <div className={styles.container}>
             <TextField
-                InputProps={{style: { color: '#ffffff'}, sx: {'&.Mui-focused .MuiOutlinedInput-notchedOutline': {borderColor: '#D4313D'}}}}
-                size='small' placeholder="Search" className={styles.input} 
+                InputProps={{style: { color: '#ffffff'}, sx: {'&.Mui-focused .MuiOutlinedInput-notchedOutline': {borderColor: '#f0f0f0'}}}}
+                placeholder="Search" className={styles.input} 
                 value={searchQuery.search} name="search" 
                 onChange={(e)=> handleChange('search', e.target.value)}
             />
-            <FormControl color='grey' fullWidth>
-                <InputLabel size='small' color='grey' sx={{color: 'grey'}} variant='outlined'>Filter Discussions</InputLabel>
-                <Select size='small' color='error'  sx={{color: 'grey'}} name="order" className={styles.input} value={searchQuery.order} 
+            <FormControl color='grey' fullWidth >
+                <InputLabel color='grey' sx={{color: 'grey'}} variant='outlined'>Filter Discussions</InputLabel>
+                <Select name="order" placeholder='Filter Discussions' className={styles.input} value={searchQuery.order}  
                     onChange={(e)=> handleChange('order', e.target.value)}>
                     <MenuItem value="dec">New to old</MenuItem>
                     <MenuItem value="asc">Old to new</MenuItem>
                 </Select>
             </FormControl>
 
-            <button className={styles.clear} onClick={handleFilterChange}>Search</button>  
-            <button className={styles.clear} onClick={handleClear}>Clear</button>        
+            <div className={styles.action}>
+                <button className={styles.clear} onClick={handleFilterChange}>Search</button>  
+                <button className={styles.clear} onClick={handleClear}>Clear</button>    
+            </div>    
         </div>
     )
 }

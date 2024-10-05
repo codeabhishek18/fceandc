@@ -1,7 +1,7 @@
 'use client'
 
 import styles from './Header.module.css'
-import logout from '@/assets/logout.png'
+import user from '@/assets/user.png'
 import logo from '@/assets/logo.png'
 import close from '@/assets/close.png'
 import Image from 'next/image';
@@ -25,10 +25,10 @@ const Header = () =>
                 {/* {(data?.user?.role === 'user' || data?.user?.role === 'admin') && <p className={styles.link} onClick={()=> router.push('/dashboard')}>Dashboard</p>} */}
 
                 <Link className={styles.link} href='/courses'>Courses</Link>
-                <Link className={styles.link} href='/blogs'>Blogs</Link>
+                {/* <Link className={styles.link} href='/blogs'>Blogs</Link> */}
                 <Link className={styles.link} href='/about'>About</Link>
-                
-                {data?.user && <Image className={styles.profile} src={logout} alt='profile' onClick={()=> setShowDetails(true)}/>}
+                 
+                {data?.user && <Image className={styles.profile} src={user} alt='profile' onClick={()=> setShowDetails(true)}/>}
             </div>
           
             {showDetails && 

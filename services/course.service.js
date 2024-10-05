@@ -1,3 +1,4 @@
+import { Batch } from "@/models/batch.model";
 import { Course } from "@/models/course.model";
 import { Lecture } from "@/models/lecture.model";
 
@@ -52,7 +53,7 @@ class courseService
     {
         try
         {
-            const course = await Course.findOne({id}).populate({path: 'lectures', model: Lecture})
+            const course = await Course.findOne({id}).populate({path: 'lectures', model: Lecture}).populate({path: 'batches', model: Batch})
             if(!course)
                 throw new Error('Course not found')
             return course

@@ -68,14 +68,16 @@ const Forum = () =>
         <div className={styles.wrapper}>
             {discussions ? <div className={styles.container}>
                 <ForumPost getDiscussions={getDiscussions} getTopics={getTopics}/>
-                <ForumSearchbar handleChange={handleChange} searchQuery={searchQuery} getDiscussions={getDiscussions}/>
+                
                 
                 <div className={styles.discussions}>
-                     <PopularCard handleChange={handleChange} getTopics={getTopics} topics={topics}/>
-                    
+                <div className={styles.query}>
+                        <ForumSearchbar handleChange={handleChange} searchQuery={searchQuery} getDiscussions={getDiscussions}/>
+                        <PopularCard handleChange={handleChange} getTopics={getTopics} topics={topics}/>
+                    </div>
                     <div className={styles.discussionsReply}>
                         <DiscussionCard discussions={discussions} getDiscussions={getDiscussions} getTopics={getTopics}/>
-                    </div>
+                    </div> 
                 </div>
             </div> :
             <div className={styles.spinner}>

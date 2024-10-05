@@ -37,7 +37,7 @@
     margin: 0;
     font-size: 60px;
     font-weight: 700;
-    color: var(--primary-color);
+    color: var(--action-color);
 }
 
 .faqWrapper, .faq
@@ -52,3 +52,10 @@
     row-gap: 20px;
 }
 
+@media screen and (max-width:480px) 
+{
+    .container
+    {
+        padding: 20px;
+    }    
+}

@@ -12,6 +12,7 @@
     margin: 0;
     font-size: 18px;
     font-weight: 500;
+    color: var(--action-color);
 }
 
 .header
@@ -40,7 +41,7 @@
     margin: 0;
     font-size: 13px;
     font-weight: 500;
-    color: var(--primary-border)
+    color: var(--secondary-color);
 }
 
 .keywords
@@ -59,6 +60,6 @@
     border-radius: 5px;
     font-size: 13px;
     position: relative;
-    background-color: var(--primary-border);
-    color: white;
+    background-color: var(--secondary-color);
+    color: black;
 }

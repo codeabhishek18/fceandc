@@ -1,6 +1,6 @@
 export const userRoutes =
 [
-    '/dashboard', '/forum', '/profile'
+    '/dashboard', '/forum'
 ] 
 
 export const adminRoutes =

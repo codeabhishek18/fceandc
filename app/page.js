@@ -1,17 +1,22 @@
 'use client'
 
 import styles from './styles.module.css'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { faqData } from '@/utility/faqData'
 import HeroSection from './components/heroSection/HeroSection'
 import Accordian from './components/accordian/Accordian'
 import Footer from './components/footer/Footer'
 import { motion } from 'framer-motion'
 import BoxReveal from "@/components/magicui/box-reveal";
+import Image from 'next/image'
+import chat from '@/assets/chat.png'
+import close from '@/assets/close.png'
+import Query from './components/query/Query'
 
 const Home = () =>
 {
     const [ showFaq, setShowFaq ] = useState(0);
+    const [ showMessage, setShowMessage ] = useState(false);
 
     return(
         <div className={styles.wrapper}>
@@ -25,6 +30,11 @@ const Home = () =>
                     ))}
                 </div>
             </div>
+            {showMessage && 
+            <div className={styles.query}>
+                <Query/>
+            </div>}
+            <Image className={styles.chat} src={showMessage ? close : chat} alt='chat' onClick={()=> setShowMessage(!showMessage)}/>
             <Footer/>
         </div>
     )

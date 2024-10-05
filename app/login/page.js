@@ -6,11 +6,18 @@ import Image from 'next/image';
 import successicon from '../../assets/success-icon.png'
 import erroricon from '../../assets/error-icon.png'
 import { CircularProgress, TextField } from '@mui/material';
-import { redirect, usePathname, useRouter, useSearchParams } from 'next/navigation';
-import { useEffect, useState } from 'react';
-import Header from '../components/header/Header';
+import { useRouter, useSearchParams } from 'next/navigation';
+import { Suspense, useEffect, useState } from 'react';
 import GoogleAuth from '../components/googleAuth/GoogleAuth';
 import { signIn } from 'next-auth/react';
+
+export default function Page() {
+    return (
+      <Suspense fallback={null}>
+        <Login />
+      </Suspense>
+    );
+  }
 
 const Login = () =>
 {   
@@ -82,13 +89,13 @@ const Login = () =>
         <div className={styles.wrapper}>
            <div className={styles.container}> 
                 <div className={styles.header}>
-                    <Image className={styles.logo} src={logo} alt='logo'/>
+                    <Image className={styles.logo} src={logo} alt='logo' onClick={()=> router.push('/')}/>
                     <p className={styles.welcome}>Welcome back!</p>
                 </div>
                 <div className={styles.form}>
                     <form className={styles.form} onSubmit={handleSubmit}>
-                        <TextField className={styles.inputs} color='grey' size='small' label="Email" type="text" name="email" variant='filled'/>
-                        <TextField className={styles.inputs} color='grey' size='small' label="Password" type="password" name="password" variant='filled'/>
+                        <TextField className={styles.inputs} size='small' label="Email" type="text" name="email" variant='filled'/>
+                        <TextField className={styles.inputs} size='small' label="Password" type="password" name="password" variant='filled'/>
                         {isError && 
                         <div className={styles.error}>
                             <Image className={styles.erroricon} src={erroricon} alt='error'/>
@@ -113,5 +120,3 @@ const Login = () =>
         </div>
     )
 }
-
-export default Login

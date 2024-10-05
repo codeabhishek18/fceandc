@@ -74,7 +74,7 @@ const Newbatch = () =>
             </FormControl>
 
             <FormControl className={styles.inputs} fullWidth>
-                <InputLabel color='grey'  variant='outlined'>Choose mentor</InputLabel>
+                <InputLabel color='white' variant='outlined'>Choose mentor</InputLabel>
                 <Select color='grey' name="mentor" placeholder="Multiple answers" label="Choose mentor">
                     {mentors?.map((mentor) =>
                     (

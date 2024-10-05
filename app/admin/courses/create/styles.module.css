@@ -3,29 +3,31 @@
     width: 100%;
     display: flex;
     flex-direction: column;
-    row-gap: 15px;
-}
-
-.header
-{
-    font-size: 32px;
-    font-weight: 600;
-    margin: 10px 0 20px;
-    color: var(--alert-color);
+    align-items: end
+    ;
+    row-gap: 25px;
 }
 
 .input
 {
     width: 100%;
+    background-color: var(--secondary-color);
+    border-radius: 5px;
 }
 
 .create
 {
-    background-color: var(--primary-color);
+    background-color: var(--secondary-color);
     width: fit-content;
     border-radius: 5px;
     padding: 15px;
-    color: white;
+    color: black;
     font-weight: 500;
     font-size: 14px;
+}
+
+.create:hover
+{
+    background-color: var(--action-color);
+    color: white;
 }

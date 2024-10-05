@@ -11,8 +11,10 @@
     justify-content: space-between;
     padding: 0 20px;
     column-gap: 15px;
-    background-color: var(--secondary-color);
+    background-color: #0B192C;
     font-weight: 500;
+    color: white;
+    border-bottom: 1px solid var(--primary-color);
 }
 
 .user
@@ -24,7 +26,7 @@
     position: absolute;
     right: 20px;
     top: 90px;
-    background-color: white;
+    background-color: var(--primary-color);
     box-shadow: var(--box-shadow);
     border-radius: 8px;
 }
@@ -52,6 +54,7 @@
 
 .close
 {
+    margin-left: 5px;
     height: 30px;
     width: fit-content;
     cursor: pointer;
@@ -70,3 +73,10 @@
     transform: scale(1.1);
 }
 
+@media screen and (max-width: 480px) 
+{
+    .link
+    {
+        display: none;
+    }    
+}

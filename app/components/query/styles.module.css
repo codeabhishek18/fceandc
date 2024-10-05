@@ -1,0 +1,62 @@
+.container
+{
+    height: 480px;
+    width: 360px;
+    border-radius: 5px;
+    background-color: var(--primary-bg);
+    position: absolute;
+    bottom: 90px;
+    right: 20px;
+    z-index: 10;
+}
+
+.header
+{
+    width: 100%;
+    padding: 20px;
+    color: var(--action-color);
+    font-size: 20px;
+    font-weight: 700;
+    background-color: var(--primary-color);
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+
+.chat
+{
+    padding: 20px;
+    color: white;
+    line-height: 28px;
+}
+
+.form
+{
+    margin-top: 20px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    row-gap: 20px;
+    background-color: var(--primary-color);
+    padding: 20px;
+}
+
+.input
+{
+    width: 100%;
+}
+
+.submit
+{
+    background-color: var(--action-color);
+    padding:5px;
+    color: white;
+    border-radius: 5px;
+}
+
+@media screen and (max-width: 390px)
+{
+    .container
+    {
+        width: calc(100% - 40px);
+    }
+}

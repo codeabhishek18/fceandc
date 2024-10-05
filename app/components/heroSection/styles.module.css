@@ -50,6 +50,7 @@
 .subHeading
 {
     font-size: 18px;
+    line-height: 36px;
     text-align: center;
     margin-bottom: 20px;
 }
@@ -67,32 +68,21 @@
 
     font-size: 14px;
     border: 1px solid var(--secondary-color);
-    padding: 8px 25px;
+    padding: 8px;
     border-radius: 5px;
     color: white;
 }
 
 .enroll:hover
 {
-    background-color: var(--primary-color);
-    border: 1px solid var(--primary-color);
+    background-color: var(--action-color);
+    border: 1px solid var(--action-color);
     color: white;
     cursor: pointer;
 }
 
 @media screen and (max-width:920px)
 {
-    .header
-    {
-        font-size: 48px;
-        line-height: 72px;
-    }
-
-    .activeHeading
-    {
-        font-size: 72px;
-    }
-
     .subHeading
     {
         font-size: 16px;
@@ -101,73 +91,28 @@
 
 @media screen and (max-width: 720px)
 {
-    .header
+    .heading
     {
         font-size: 36px;
         line-height: 54px;
-    }
-
-    .activeHeading
-    {
-        font-size: 54px;
-    }
-
-    .subHeading
-    {
-        font-size: 14px;
     }
 }
 
 @media screen and (max-width: 540px)
 {
-    .header
+    .heading
     {
         font-size: 32px;
         line-height: 50px;
-    }
-
-    .activeHeading
-    {
-        font-size: 48px;
-    }
-
-    .enroll
-    {
-        padding: 5px 8px;
-        font-size: 12px;
     }
 }
 
 @media screen and (max-width: 450px)
 {
-    .header
-    {
-        font-size: 24px;
-        line-height: 44px;
-    }
-
-    .activeHeading
-    {
-        font-size: 40px;
-    }
-
     .subHeading
     {
-        width: 80%;
+        width: 100%;
         line-height: 32px;
     }
 }
 
-@media screen and (max-width: 340px)
-{
-    .header
-    {
-        font-size: 18px;
-        line-height: 40px;
-    }
-
-    .activeHeading
-    {
-        font-size: 36px;
-    }
-}

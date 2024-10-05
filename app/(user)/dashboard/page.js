@@ -7,6 +7,7 @@ import axios from "axios";
 import { useSession } from "next-auth/react"
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
+import Loading from "@/app/components/loading/Loading";
 
 const Dashboard = () =>
 {
@@ -48,9 +49,7 @@ const Dashboard = () =>
 
     if(status === 'loading' || isLoading)
         return(
-            <div className={styles.spinner}>
-                <CircularProgress sx={{color: '#D4313D'}} />
-            </div>    
+            <Loading/> 
         )
         
     return(

@@ -8,6 +8,7 @@ import CourseDetail from '@/app/components/courseDetail/CourseDetail';
 import Footer from '@/app/components/footer/Footer';
 import Header from '@/app/components/header/Header';
 import { CircularProgress } from '@mui/material';
+import Loading from '@/app/components/loading/Loading';
 
 const Course = () =>
 {
@@ -28,7 +29,7 @@ const Course = () =>
             setIsLoading(true)
             const url = `/api/course/${courseId}`
             const response = await axios.get(url);
-            setCourse(response.data.course);
+            setCourse(response.data);
             setIsLoading(false);
         }
         catch(error)
@@ -42,9 +43,7 @@ const Course = () =>
             <Header/>
     
             {isLoading ? 
-            <div className={styles.spinner}>
-                <CircularProgress sx={{color: '#3e4d42'}} />
-            </div> :
+            <Loading/> :
             (course ? 
             <div className={styles.container}>
                 <CourseDetail course={course}/>

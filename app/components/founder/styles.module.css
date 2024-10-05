@@ -68,7 +68,7 @@
 
 .name
 {
-    color: var(--secondary-color);
+    color: var(--action-color);
     font-size: 20px;
     font-weight: 700;
 }
@@ -110,13 +110,6 @@
     height: 60px;
 }
 
-@media screen and (max-width: 1120px) 
-{
-    .content
-    {
-        width: 60%;
-    }
-}
 
 @media screen and (max-width: 920px) 
 {

@@ -104,10 +104,6 @@
 
 @media screen and (max-width: 480px) 
 {
-    .title
-    {
-        height: 60px;
-    }    
 
     .icons
     {
@@ -130,7 +126,7 @@
 {
     .title
     {
-        height: 50px;
+        height: 20px;
     }    
 
     .icons

@@ -2,7 +2,7 @@ import styles from './styles.module.css'
 import email from '@/assets/email.png'
 import linkedin from '@/assets/linkedin.png'
 import instagram from '@/assets/instagram.png'
-import fints from '@/assets/logo-lg.png'
+import logo from '@/assets/logo.png'
 import youtube from '@/assets/youtube.png'
 import Image from 'next/image'
 
@@ -12,7 +12,7 @@ const Footer = () =>
     return(
         <div className={styles.wrapper}>
             <div className={styles.container}>
-            <Image className={styles.title} src={fints} alt='icon'/>
+            <Image className={styles.title} src={logo} alt='icon'/>
             <div className={styles.social}>
                 <a href='https://www.linkedin.com/in/lokesh-naik-amltrustedsource/' target='_blank'>
                     <Image className={styles.icons} src={linkedin} alt='linkedin'/>
@@ -26,7 +26,7 @@ const Footer = () =>
                 <p className={styles.description}>admin@fceandc.com</p>
             </div>
             </div>
-            <p className={styles.copyright}>© 2024 FinCrime Trusted Source. All rights reserved.</p>
+            <p className={styles.copyright}>© 2024 FinCrime Compliance Education & Consultancy. All rights reserved.</p>
         </div>
     )
 }

@@ -10,10 +10,11 @@ import { useSession } from 'next-auth/react';
 import Image from 'next/image';
 import upArrow from '@/assets/show.png'
 import downArrow from '@/assets/drop.png'
+import { toast } from 'sonner';
 
 const DiscussionCard = ({discussions, getDiscussions, getTopics}) =>
 {   
-    const [ comment, setComment ] = useState(null)
+    const [ comment, setComment ] = useState('')
     const [ viewComment, setViewComment ] = useState(null)
 
     const session = useSession();
@@ -24,7 +25,8 @@ const DiscussionCard = ({discussions, getDiscussions, getTopics}) =>
         try
         {
             const url = `/api/forum/${id}`
-            await axios.delete(url);
+            const response = await axios.delete(url);
+            toast.success(response.data.message);
             getDiscussions('/api/forum');
             getTopics();
         }
@@ -41,7 +43,8 @@ const DiscussionCard = ({discussions, getDiscussions, getTopics}) =>
             const url = `/api/comment/${id}`
             if(user)
             {
-                await axios.post(url, {comment, author: user})
+                const response = await axios.post(url, {comment, author: user});
+                toast.success(response.data.message)
                 getDiscussions('/api/forum');
                 setComment('');
                 setViewComment(id);
@@ -71,7 +74,7 @@ const DiscussionCard = ({discussions, getDiscussions, getTopics}) =>
                                           
                     <div className={styles.replySection}>
                         <TextField 
-                            InputProps={{style: { color: '#ffffff'}, sx: {'&.Mui-focused .MuiOutlinedInput-notchedOutline': {borderColor: '#D4313D'}}}}
+                            InputProps={{style: { color: '#ffffff'}, sx: {'&.Mui-focused .MuiOutlinedInput-notchedOutline': {borderColor: '#f0f0f0'}}}}
                             variant='outlined' 
                             size='small' color='grey' 
                             className={styles.reply} 
@@ -88,7 +91,7 @@ const DiscussionCard = ({discussions, getDiscussions, getTopics}) =>
 
                     { discussion.comments.length > 0 ?
                     <div className={styles.commentsCount} onClick={()=> setViewComment((prev) => prev  === discussion._id ? null : discussion._id)}>
-                        {discussion.comments?.length}  {discussion.comments?.length > 1 ? 'resposes' : 'response'}
+                        <p className={styles.response}>{discussion.comments?.length}  {discussion.comments?.length > 1 ? 'resposes' : 'response'}</p>
                        <Image className={styles.arrows} src={viewComment === discussion._id ? downArrow : upArrow} alt='comments'/> 
                     </div>:<p className={styles.noCount}>Be the first one to comment</p>}
 

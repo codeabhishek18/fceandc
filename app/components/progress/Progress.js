@@ -100,7 +100,7 @@ const Progress = ({batchData, level, assessments, getBatch}) =>
 
            {showAccess && <button className={styles.accessControl}  onClick={handleBatchAccess}>{batchData.access ==='true' ? 'Revoke Batch Acess' : 'Grant Batch Access'}</button>}
             
-           {level === 'admin' && <p className={styles.access}>{batchData.access ===  'true' ? 'Accessible' : 'Inaccessible'}</p>}
+           {level === 'admin' && <p className={styles.access}>{batchData.access ===  'true' ? 'Accessible' : 'Restricted'}</p>}
          </div>
     )
 }

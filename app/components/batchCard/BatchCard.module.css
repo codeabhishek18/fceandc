@@ -2,7 +2,7 @@
 {
     width: calc(33.3% - 10px);
     border-radius: 5px;
-    padding: 20px;
+    padding: 15px;
     display: flex;
     flex-direction: column;
     row-gap: 15px;
@@ -16,9 +16,9 @@
 
 .header
 {
-    height: 200px;
+    height: 180px;
     width: 100%;
-    background-color: white;
+    background-color: var(--secondary-color);
     border-radius: 5px;
     display: flex;
     flex-direction: column;
@@ -29,10 +29,10 @@
 
 .batch
 {
-    color: var(--primary-color);
     font-size: 32px;
     letter-spacing: 2px;
     font-weight: 600;
+    color: black;
 }
 
 .image
@@ -49,6 +49,7 @@
 
 .course
 {
+    color: var(--action-color);
     font-size: 16px;
     font-weight: 550;
 }
@@ -73,12 +74,11 @@
     position: absolute;
     top: 30px;
     left: 30px;
-    background-color: var(--secondary-color);
-    color: black;
-    padding: 5px;
+    background-color: var(--primary-color);
+    color: white;
+    padding: 2px 5px;
     border-radius: 5px;
     font-size: 12px;
-    font-weight: 500;
     margin: 0;
 }
 
@@ -104,15 +104,10 @@
     border-radius: 5px;
     width: 50%;
     text-align: center;
-    border: 1px solid var(--secondary-color);
+    border: 1px solid var(--action-color);
+    background-color: var(--action-color);
+    color: white;
     font-weight: 500;
-}
-
-.details:hover
-{
-    border: 1px solid var(--secondary-color);
-    background-color: var(--secondary-color);
-    color: black;
 }
 
 .deleteBatch
@@ -128,7 +123,15 @@
     cursor: pointer;
 }
 
-@media screen and (max-width: 450px)
+@media screen and (max-width: 1120px)
+{
+    .container
+    {
+        width: calc(50% - 15px);
+    }
+}
+
+@media screen and (max-width: 780px)
 {
     .container
     {

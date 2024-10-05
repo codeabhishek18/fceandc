@@ -17,7 +17,7 @@ const HeroSection = () =>
 
             <div className={styles.content}>
                 <div className={styles.header}>
-                    <p className={styles.heading}>Fast-Track Your CAMS & CGSS Journey Today</p>
+                    <p className={styles.heading}>Fast-Track Your <span style={{color: 'var(--action-color)'}}>CAMS</span> & <span style={{color: 'var(--action-color)'}}>CGSS</span> Journey Today</p>
                     <p className={styles.subHeading}>Get access to high-quality materials, live interactive classes and practice sessions, all crafted by industry expert to help you master the skills you need</p>
                     <button className={styles.enroll}>Get Started</button>
                 </div>

@@ -40,11 +40,13 @@
     margin: 0;
     text-align: center;
     border-radius: 5px;
+    color: var(--action-color);
 }
 
 .dates, .pendingSessions
 {
     margin: 0;
+    color: white;
     font-weight: 500;
 }
 
@@ -74,8 +76,8 @@
     flex-direction: column;
     row-gap: 10px;
     border-radius: 5px;
-    background: var(--secondary-color);
-    color: black;
+    background: var(--primary-bg);
+    color: white;
     box-shadow: var(--box-shadow);
     font-size: 15px;
 }
@@ -89,9 +91,9 @@
 
 .connect
 {
-    border: 1px solid black;
+    border: 1px solid white;
     border-radius: 5px;
-    color: black;
+    color: white;
     background: none;
     font-size: 12px;
     padding: 0 5px;
@@ -99,8 +101,8 @@
 
 .access
 {
-    background-color: var(--secondary-color);
-    color: black;
+    background-color: var(--action-color);
+    color: white;
     text-align: center;
     width: 100%;
     border-radius: 5px;
@@ -124,7 +126,8 @@
 
 .accessControl:hover
 {
-    background-color: white;
+    background-color: var(--action-color);
+    color: white;
 }
 
 .more
@@ -139,9 +142,9 @@
 
 .connect:hover
 {
-    background-color: var(--primary-color);
-    border: 1px solid var(--primary-color);
-    color: var(--secondary-color);
+    background-color: var(--action-color);
+    border: 1px solid var(--action-color);
+    color:white;
     cursor: pointer;
 }
 

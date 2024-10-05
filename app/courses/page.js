@@ -12,6 +12,7 @@ import Header from '../components/header/Header'
 import { faqData } from '@/utility/faqData'
 import Accordian from '../components/accordian/Accordian'
 import Footer from '../components/footer/Footer'
+import Loading from '../components/loading/Loading'
 
 const Courses = () =>
 {
@@ -58,22 +59,13 @@ const Courses = () =>
         <div className={styles.wrapper}>
             <Header/>
             {isLoading ? 
-            <div className={styles.spinner}>
-                <CircularProgress sx={{color: '#3e4d42'}} />
-            </div> :
+            <Loading/> :
             (courses ? 
             <div className={styles.container}>
                 <div className={styles.courses}>
                     {courses?.map((course) =>
                     (
                         <CourseCard level="user" key={course._id} course={course} removeCourse={removeCourse}/>
-                    ))}
-                </div>
-                <div className={styles.faq}>
-                    <p className={styles.header}>FAQs</p>
-                    {faqData.map((data, index)=>
-                    (
-                        <Accordian data={data} key={data.id} index={index} showFaq={showFaq} setShowFaq={setShowFaq}/>
                     ))}
                 </div>
             </div>: <></>)}

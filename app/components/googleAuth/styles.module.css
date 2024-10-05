@@ -1,7 +1,7 @@
 .container
 {
     width: 100%;   
-    background-color: var(--primary-color);
+    background-color: var(--action-color);
     border-radius: 5px;
     padding: 5px;
     display: flex;
@@ -10,11 +10,6 @@
     column-gap: 10px;
 }
 
-.container:hover
-{
-    background-color: var(--primary-color);
-    cursor: pointer;
-}
 
 .googleIcon
 {

@@ -7,8 +7,8 @@
     font-size: 13px;
     cursor: pointer;
     position: relative;
-    background-color: var(--primary-border);
-    color: white;
+    background-color: var(--secondary-color);
+    color: black;
 }
 
 .keyword
@@ -33,5 +33,7 @@
     color: var(--secondary-color);
     border-radius: 50%;
     width: 18px;
-    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }

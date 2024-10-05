@@ -1,19 +1,26 @@
 'use client'
 
 import styles from './styles.module.css'  
-import Progress from "@/app/components/progress/Progress";
-import SessionCard from "@/app/components/sessionCard/SessionCard";
 import axios from "axios";
 import { useSession } from "next-auth/react"
 import Image from 'next/image';
 import { useParams, usePathname, useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
-import feedback from '@/assets/logo.png'
 import { CircularProgress } from '@mui/material';
-import Feedback from '@/app/components/feedback/Feedback';
-import AssessmentCard from '@/app/components/assessmentCard/assessmentCard';
-import Lecturecard from '@/app/components/lectureCard/LectureCard';
 import { toast } from 'sonner';
+import Link from 'next/link';
+import Loading from '@/app/components/loading/Loading';
+
+export const pendingSessions = (sessions) =>
+{
+    return sessions.filter((session) => session.status === 'Upcoming').length
+}
+
+export const recordings = (sessions) =>
+{
+    const count = sessions.filter((session) => session.status === 'Completed').length
+    return count === 0 ? 'NA' : count
+}
 
 const Dashboard = () =>
 {
@@ -23,9 +30,6 @@ const Dashboard = () =>
     const [ isLoading, setIsLoading ] = useState(true)
     const [ activeAgenda, setActiveAgenda ] = useState(-1);
     const [ enrollment, setEnrollment ] = useState(null);
-    const [ feedbackForm, setFeedbackForm ] = useState(false);
-    const [ feedbackTooltip, setFeedbackTooltip ] = useState(false);
-    const [ hideFeedback, setHideFeedback ] = useState(true);
     const pathname = usePathname();
     const batchTitle = pathname.split('/')[2]
     const router = useRouter();
@@ -69,7 +73,7 @@ const Dashboard = () =>
         }
         catch(error)
         {
-            console.log(error)
+            toast.error(error.message)
         }
     }
     
@@ -88,18 +92,75 @@ const Dashboard = () =>
     }, [status]);
 
     if(status === 'loading' || isLoading)
-        return(
-            <div className={styles.spinner}>
-                <CircularProgress sx={{color: '#D4313D'}} />
-            </div>    
-        )
-
-        console.log(enrollment)
+    return(
+        <Loading/>   
+    )
 
     return(
         <div onClick={()=> setActiveAgenda(-1)} className={styles.wrapper}>
-        
+
             {batchData &&
+            <div className={styles.content}>
+                <div className={styles.group}>
+                    <Image className={styles.coverImage} src={batchData.course.imageURL} alt={batchData.title} width={100} height={100}/>
+                </div>
+                <div className={styles.group}>
+                    <p className={styles.header}>Batch</p>
+                    <p className={styles.title}>{batchData.title.split('-')[1]}</p>
+                </div>
+                <div className={styles.group}>
+                    <p className={styles.header}>Progress</p>
+                    <p className={styles.title}>{Math.ceil((batchData.sessions.length - pendingSessions(batchData.sessions))*100/batchData.sessions.length)}%</p>
+                </div>
+                <div className={styles.group}>
+                    
+                    <p className={styles.header}>Sessions</p>
+                    <p className={styles.title}>32</p>
+                    <div className={styles.pop}>
+                    <Link href={`${pathname}/sessions`} className={styles.route}>View</Link>
+                    </div>
+                </div>
+
+                <div className={styles.group}>
+                    <p className={styles.header}>Recordings</p>
+                    <p className={styles.title}>{enrollment.access === 'false' || enrollment.batch.access === 'false' ? 'NA' : recordings(batchData.sessions)}</p>
+                    {(enrollment.access === 'true' && recordings(batchData.sessions) !== 'NA') && 
+                    <div className={styles.pop}>
+                        <Link href={`${pathname}/recordings`} className={styles.route}>View</Link>
+                    </div>}
+                </div>
+                <div className={styles.group}>
+                    <p className={styles.header}>Assessments</p>
+                    <p className={styles.title}>{enrollment.assessments?.length === 0 ? 'NA' : enrollment.assessments.length}</p>
+                    {enrollment.assessments?.length > 0 && 
+                    <div className={styles.pop}>
+                        <Link href={`${pathname}/assessments`} className={styles.route}>View</Link>
+                    </div>}
+                </div>
+                <div className={styles.group}>
+                    <p className={styles.header}>Zoom</p>
+                    <div className={styles.pop}>
+                    <Link href='' className={styles.route}>Connect</Link>
+                    </div>
+                </div>
+                <div className={styles.group}>
+                    <p className={styles.header}>Whatsapp</p>
+                    
+                    <div className={styles.pop}>
+                    <Link href='' className={styles.route}>Connect</Link>
+                    </div>
+                </div>
+                <div className={styles.group}>
+                    <p className={styles.header}>Forum</p>
+                    
+                    <div className={styles.pop}>
+                    <Link href='/forum' className={styles.route}>Connect</Link>
+                    </div>
+                </div>
+            </div>}
+
+        
+            {/* {batchData &&
             <div className={styles.container} >
                 <div className={styles.progress}>
                     <Progress batchData={batchData} level='user' enrollment={enrollment}/>
@@ -112,12 +173,13 @@ const Dashboard = () =>
                         (
                             <div className={styles.sessions}>
                                 <SessionCard session={session} index={index} setActiveAgenda={setActiveAgenda} activeAgenda={activeAgenda} level='user' key={data._id}/>
-                                {session.status === 'Completed' && <Lecturecard lecture={session} level='admin' type='dashboard'/>}
+                                {session.status === 'Completed' && 
+                                <Lecturecard lecture={session} level='admin' type='dashboard'/>}
                             </div>
                         ))}
                     </div>}
                 </div>
-            </div>}
+            </div>} */}
 
             {/* <div className={styles.assessmentWrapper}>
                 {enrollment.enrollment.length > 0 && <p className={styles.header}>enrollment</p>}
@@ -130,7 +192,7 @@ const Dashboard = () =>
             </div>
             </div> */}
 
-            {/* {hideFeedback && <Image className={styles.feedback} src={feedback} alt='feedback' onClick={()=> setFeedbackForm(true)} onMouseEnter={()=> setFeedbackTooltip(true)} onMouseLeave={()=> setFeedbackTooltip(false)}/>}
+            {/* {hideFeedback && <Image className={styles.feedback} alt='feedback' onClick={()=> setFeedbackForm(true)} onMouseEnter={()=> setFeedbackTooltip(true)} onMouseLeave={()=> setFeedbackTooltip(false)}/>}
             {feedbackTooltip && <p className={styles.toolTip}>Feedback</p>}
             {feedbackForm && 
             <div className={styles.feedbackForm}>

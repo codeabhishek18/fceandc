@@ -8,6 +8,7 @@ import ReplyCard from '../replyCard/ReplyCard';
 import Image from 'next/image';
 import upArrow from '@/assets/show.png'
 import downArrow from '@/assets/drop.png'
+import { toast } from 'sonner';
 
 const Comment = ({comment, getDiscussions, user}) =>
 {
@@ -22,7 +23,8 @@ const Comment = ({comment, getDiscussions, user}) =>
             if(user)
             {
                 const url = `/api/reply/${id}`
-                await axios.post(url, {reply, author: user})
+                const response = await axios.post(url, {reply, author: user})
+                toast.success(response.data.message)
                 getDiscussions('/api/forum');
                 setReply('');
                 setViewReply(id)
@@ -64,7 +66,7 @@ const Comment = ({comment, getDiscussions, user}) =>
             {showReply === comment._id && 
             <div className={`${styles.input} ${styles.rereply}`}>
                 <TextField
-                    InputProps={{style: { color: '#ffffff'}, sx: {'&.Mui-focused .MuiOutlinedInput-notchedOutline': {borderColor: '#D4313D'}}}}
+                    InputProps={{style: { color: '#ffffff'}, sx: {'&.Mui-focused .MuiOutlinedInput-notchedOutline': {borderColor: '#f0f0f0'}}}}
                     variant="outlined" size='small' 
                     color='grey' className={styles.reply} 
                     name="reply" placeholder="Reply" 

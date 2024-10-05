@@ -5,6 +5,7 @@ import compliance from '@/assets/cams.jpg'
 import Image from 'next/image'
 import Navbar from '../navbar/Navbar'
 import div from '@/components/magicui/box-reveal'
+import Link from 'next/link'
 
 
 const HeroSection = () =>
@@ -19,7 +20,7 @@ const HeroSection = () =>
                 <div className={styles.header}>
                     <p className={styles.heading}>Fast-Track Your <span style={{color: 'var(--action-color)'}}>CAMS</span> & <span style={{color: 'var(--action-color)'}}>CGSS</span> Journey Today</p>
                     <p className={styles.subHeading}>Get access to high-quality materials, live interactive classes and practice sessions, all crafted by industry expert to help you master the skills you need</p>
-                    <button className={styles.enroll}>Get Started</button>
+                    <Link className={styles.enroll} href='/courses'>Get Started</Link>
                 </div>
                 
             </div>

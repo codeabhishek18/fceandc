@@ -59,7 +59,7 @@ const BillingCard = ({course, selectedBatch}) =>
             <p className={styles.success}>You saved ${course.price - course.offerPrice} on this</p>
             {isLoading ? 
             <div className={styles.spinner}>
-                <CircularProgress sx={{color: '#D4313D'}} />
+                <CircularProgress sx={{color: 'var(--action-color)'}} />
             </div> : 
             <button className={styles.buy} onClick={handleBuy}>Register Now</button>}
         </div>

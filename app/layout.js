@@ -16,11 +16,11 @@ export default async function RootLayout({ children })
 
   return (
     <html lang="en">
-      <meta name="keywords" content="financial crime, FinCrime, financial crime prevention, fraud detection, anti-money laundering, financial security, compliance solutions, risk management"/>
-      <meta property="og:title" content="Fints - FinCrime Trusted Source"/>  
-      <meta property="og:description" content="Fints offers expert solutions for financial crime prevention. Explore our resources and insights to combat financial crime effectively."/>
-      <meta property="og:image" content="fints"/>
-      <meta property="og:url" content="https://www.fintsacademy.com"/>
+      <meta name="keywords" content="CAMS, CGSS, AML, Compliance"/>
+      <meta property="og:title" content="FCE&C - FinCrime Compliance Education & Consultancy"/>  
+      <meta property="og:description" content="FCE&Cs offers  high-quality materials, live interactive classes and practice sessions, all crafted by industry expert to clear CAMS & CGSS. Explore our resources and insights to combat financial crime effectively."/>
+      <meta property="og:image" content="fce&c"/>
+      {/* <meta property="og:url" content="https://www.fintsacademy.com"/> */}
       <SessionWrapper>
         <ReduxProvider>
           <body>

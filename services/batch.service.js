@@ -5,6 +5,7 @@ import { Session } from "@/models/session.model.js";
 import { Mentor } from "@/models/mentor.model.js";
 import { Feedback } from "@/models/feedback.model.js";
 import { Enrollment } from "@/models/enrollment.model.js";
+import { Lecture } from "@/models/lecture.model.js";
 
 class batchService
 {
@@ -30,7 +31,7 @@ class batchService
             const batch = await Batch.findOne({title})
             .populate({path: 'course', model: Course, populate:{path: 'feedbacks', model: Feedback}})
             .populate({path: 'enrollments', model: Enrollment, populate: {path: 'user', model: User}})
-            .populate({path: 'sessions', model: Session})
+            .populate({path: 'sessions', model: Session, populate: {path: 'lecture', model: Lecture}})
             .populate({path: 'mentor', model: Mentor})
             return batch 
         } 

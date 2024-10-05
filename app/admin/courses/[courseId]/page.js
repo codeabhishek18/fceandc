@@ -7,6 +7,7 @@ import { useEffect, useState } from 'react';
 import axios from 'axios';
 import Lecturecard from '@/app/components/lectureCard/LectureCard';
 import { toast } from 'sonner';
+import Loading from '@/app/components/loading/Loading';
 
 const Course = () =>
 {
@@ -42,9 +43,7 @@ const Course = () =>
     return(
         <div className={styles.wrapper}>
         {isLoading ? 
-        <div className={styles.spinner}>
-            <CircularProgress sx={{color: '#3e4d42'}} />
-        </div> :
+        <Loading/> :
         (course ? 
         <div className={styles.container}>
             <div className={styles.header}>

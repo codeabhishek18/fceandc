@@ -27,7 +27,7 @@ const Courses = () =>
             setIsLoading(true);
             const url = `/api/course`
             const response = await axios.get(url);
-            setCourses(response.data.courses);
+            setCourses(response.data);
             setIsLoading(false);
         }
         catch(error)
@@ -52,15 +52,15 @@ const Courses = () =>
 
     return(
         <div className={styles.wrapper}>
+            <div className={styles.header}>
+                <button className={styles.addCourse} onClick={()=> router.push('/admin/courses/create')}>+ Add Course</button>
+            </div>
             {isLoading ? 
             <div className={styles.spinner}>
                 <CircularProgress sx={{color: '#3e4d42'}} />
             </div> :
             (courses ? 
             <div className={styles.container}>
-                <div className={styles.header}>
-                    <button className={styles.addCourse} onClick={()=> router.push('/admin/courses/create')}>+ Add Course</button>
-                </div>
                 <div className={styles.courses}>
                     {courses?.map((course) =>
                     (

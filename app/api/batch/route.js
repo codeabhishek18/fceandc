@@ -24,7 +24,7 @@ export async function POST(req, {params})
         let id=1;
         for(let lecture of course.lectures)
         {
-            const batchSession = await sessionInstance.addNewSession(id, lecture.title, lecture.recording)
+            const batchSession = await sessionInstance.addNewSession(id, lecture._id)
             await batchInstance.updateSessions(newBatch._id, batchSession._id);
             id++;
         }

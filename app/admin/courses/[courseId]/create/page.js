@@ -3,9 +3,12 @@
 import { TextField } from '@mui/material'
 import styles from './styles.module.css'
 import axios from 'axios';
+import { usePathname } from 'next/navigation';
 
-const Lecture = ({courseId}) =>
-{    
+const Lecture = () =>
+{   
+    const pathname = usePathname(); 
+    const courseId =  pathname.split('/')[3]
 
     const handleSubmit = async (e) =>
     {

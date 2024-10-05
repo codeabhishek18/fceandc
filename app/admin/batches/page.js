@@ -6,6 +6,7 @@ import styles from './styles.module.css'
 import BatchCard from '@/app/components/batchCard/BatchCard'
 import { CircularProgress } from '@mui/material'
 import { useRouter } from 'next/navigation'
+import Loading from '@/app/components/loading/Loading'
 
 const Batches = () =>
 {
@@ -52,9 +53,7 @@ const Batches = () =>
     return(
         <div className={styles.wrapper}>
             {isLoading ? 
-            <div className={styles.spinner}>
-                <CircularProgress sx={{color: '#3e4d42'}} />
-            </div> :
+            <Loading/> :
             (batches ? 
             <div className={styles.container}>
                 <div className={styles.header}>

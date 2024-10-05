@@ -16,17 +16,11 @@
 
 .create
 {
-    background-color: var(--secondary-color);
+    background-color: var(--action-color);
+    color: white;
     width: fit-content;
     border-radius: 5px;
     padding: 15px;
-    color: black;
     font-weight: 500;
     font-size: 14px;
-}
-
-.create:hover
-{
-    background-color: var(--action-color);
-    color: white;
 }

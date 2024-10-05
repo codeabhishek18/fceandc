@@ -6,12 +6,11 @@ const sessionSchema = new Schema({
         type: Number,
         required: true
     },
-    title:
+    lecture:
     {
-        type: String,
-        required: true
+        type: Schema.Types.ObjectId,
+        ref: 'Lecture'
     },
-    recording: String,
     status:
     {
         type : String,

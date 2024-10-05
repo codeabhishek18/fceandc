@@ -18,7 +18,7 @@ const SessionCard = ({session, index, updateSessionStatus, activeAgenda, setActi
             <div className={sessionCardStyles.header}>
                 <Image className={sessionCardStyles.agendaIcon} src={agenda} alt='agenda' onClick={handleAgenda}/>
                 <p className={sessionCardStyles.sessionName}>Session {index+1}</p>
-                {activeAgenda === index && <p className={sessionCardStyles.agenda}>{session.title}</p>}
+                {activeAgenda === index && <p className={sessionCardStyles.agenda}>{session.lecture.title}</p>}
             </div>
             <div className={sessionCardStyles.footer}>
                 <p className={sessionCardStyles.status}>{session.status}</p>

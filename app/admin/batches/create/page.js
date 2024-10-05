@@ -7,25 +7,46 @@ import { useEffect, useState } from 'react';
 import { DateField, LocalizationProvider } from '@mui/x-date-pickers';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs'
 import { toast } from 'sonner';
+import Loading from '@/app/components/loading/Loading';
 
 const Newbatch = () =>
 {    
     const [ courses, setCourses ] =  useState(null); 
     const [ mentors, setMentors ] = useState(null);
+    const [ isLoading, setIsLoading ] = useState(false);
 
     const getCourses = async () =>
     {
-        const url = `/api/course`
-        const response = await axios.get(url);
-        
-        setCourses(response.data.courses);
+        try
+        {
+            setIsLoading(true);
+            const url = `/api/course`
+            const response = await axios.get(url);
+            setCourses(response.data);
+            setIsLoading(false);
+        }
+        catch(error)
+        {
+            setIsLoading(false);
+            toast.error(error.message);
+        }
     }
 
     const getMentors = async () =>
     {
-        const url = `/api/mentor`
-        const response = await axios.get(url);
-        setMentors(response.data.mentors);
+        try
+        {
+            setIsLoading(true)
+            const url = `/api/mentor`
+            const response = await axios.get(url);
+            setMentors(response.data);
+            setIsLoading(false)
+        }
+        catch(error)
+        {
+            toast.error(error.message);
+            setIsLoading(false);
+        }
     }
 
     useEffect(()=>
@@ -60,13 +81,19 @@ const Newbatch = () =>
             toast.error(response.data.error)
         }
     }
+    console.log(courses)
 
     return(
+        <div className={styles.wrapper}>
+        {isLoading ? 
+        <Loading/> :
+        ((!mentors || !courses) ?
+        <></> :
         <form onSubmit={handleSubmit} className={styles.container}>
             <FormControl className={styles.inputs} fullWidth>
                 <InputLabel color='grey' variant='outlined'>Choose course</InputLabel>
                 <Select color='grey' placeholder="Multiple answers" name="course" label="Choose course">
-                    {courses?.map((course) =>
+                    {courses.map((course) =>
                     (
                         <MenuItem value={course._id} key={course._id}>{course.title}</MenuItem>
                     ))}
@@ -94,7 +121,8 @@ const Newbatch = () =>
             </LocalizationProvider>
                         
             <button className={styles.create} type='submit'>Add Batch</button>
-        </form>
+        </form>)}
+       </div>
     )
 }
 

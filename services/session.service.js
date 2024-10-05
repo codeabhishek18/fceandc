@@ -2,17 +2,18 @@ import { Session } from "../models/session.model.js";
 
 class sessionService
 {
-    async addNewSession(id, description, duration)
+    async addNewSession(id, lecture)
     {
         try
         {
-            const newSession = await Session.create({id, description, duration})
+            const newSession = await Session.create({id, lecture})
             await newSession.save();
             return newSession
         }
         catch(error)
         {
-            throw new Error('Failed to add a session')
+            console.log(error);
+            throw error
         }
     }
 

@@ -32,7 +32,7 @@ const Courses = () =>
             setIsLoading(true);
             const url = `/api/course`
             const response = await axios.get(url);
-            setCourses(response.data.courses);
+            setCourses(response.data);
             setIsLoading(false);
         }
         catch(error)

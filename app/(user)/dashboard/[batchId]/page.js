@@ -96,6 +96,8 @@ const Dashboard = () =>
         <Loading/>   
     )
 
+    console.log(batchData)
+
     return(
         <div onClick={()=> setActiveAgenda(-1)} className={styles.wrapper}>
 

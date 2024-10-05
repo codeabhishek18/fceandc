@@ -99,7 +99,7 @@ const Checkout = () =>
                             <Select color='grey' name="mentor" style= {{ color: 'white'}} onChange={(e)=> {setSelectedBatch(e.target.value)}}>
                             {batches.map((batch) =>
                             (
-                                <MenuItem value={batch._id} key={batch._id}>{FormatDate(batch.startDate) +' - '+ FormatDate(batch.endDate)}</MenuItem>
+                                <MenuItem value={batch._id} key={batch._id}>{batch.title +' / ' +FormatDate(batch.startDate) +' - '+ FormatDate(batch.endDate)}</MenuItem>
                             ))}
                             </Select>
                         </FormControl>

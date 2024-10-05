@@ -10,6 +10,7 @@ import PopularCard from '@/app/components/popularCard/PopularCard'
 import DiscussionCard from '@/app/components/discussionCard/DiscussionCard'
 import { useSession } from 'next-auth/react'
 import { CircularProgress } from '@mui/material'
+import Loading from '@/app/components/loading/Loading'
 
 const Forum = () =>
 {
@@ -69,7 +70,6 @@ const Forum = () =>
             {discussions ? <div className={styles.container}>
                 <ForumPost getDiscussions={getDiscussions} getTopics={getTopics}/>
                 
-                
                 <div className={styles.discussions}>
                 <div className={styles.query}>
                         <ForumSearchbar handleChange={handleChange} searchQuery={searchQuery} getDiscussions={getDiscussions}/>
@@ -80,9 +80,7 @@ const Forum = () =>
                     </div> 
                 </div>
             </div> :
-            <div className={styles.spinner}>
-                <CircularProgress sx={{color: '#D4313D'}} />
-            </div>}
+            <Loading/>}
         </div>
     )
 }

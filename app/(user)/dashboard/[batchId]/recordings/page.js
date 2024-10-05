@@ -85,7 +85,7 @@ const Recording = () =>
                         (
                             <div className={styles.sessions}>
                                 {session.status === 'Completed' && 
-                                <Lecturecard lecture={session} level='admin' type='dashboard'/>}
+                                <Lecturecard lecture={session.lecture} level='admin' type='dashboard'/>}
                             </div>
                         ))}
                     </div>

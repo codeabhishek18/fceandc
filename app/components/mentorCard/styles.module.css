@@ -7,8 +7,9 @@
     flex-direction: column;
     row-gap: 15px;
     justify-content: space-between;
-    background-color: var(--secondary-color);
-    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    background-color: var(--primary-color);
+    box-shadow: var(--box-shadow);
+    color: white;
 }
 
 .title
@@ -16,3 +17,15 @@
     margin: 0;
 }
 
+.name
+{
+    color: var(--action-color);
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.icon
+{
+    height: 25px;
+    width: fit-content;
+}

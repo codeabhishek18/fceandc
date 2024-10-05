@@ -9,6 +9,7 @@ import SessionCard from '@/app/components/sessionCard/SessionCard'
 import Enrollment from '@/app/components/enrollment/Enrollment'
 import { CircularProgress } from '@mui/material'
 import { toast } from 'sonner'
+import Loading from '@/app/components/loading/Loading'
 
 const Batch = () =>
 {
@@ -72,9 +73,7 @@ const Batch = () =>
     return(
         <div className={styles.wrapper}>
             {isLoading ?
-            <div className={styles.spinner}>
-                <CircularProgress sx={{color: '#3e4d42'}} />
-            </div> :
+            <Loading/> :
             (batch ? <div className={styles.container} onClick={()=> setActiveAgenda(-1)}>
                 
                 <div className={styles.dashboard}>

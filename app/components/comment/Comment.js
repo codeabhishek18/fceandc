@@ -20,6 +20,9 @@ const Comment = ({comment, getDiscussions, user}) =>
     {
         try
         {
+            if(!reply)
+                return toast.error('Reply cannot be empty')
+
             if(user)
             {
                 const url = `/api/reply/${id}`
@@ -70,6 +73,7 @@ const Comment = ({comment, getDiscussions, user}) =>
                     variant="outlined" size='small' 
                     color='grey' className={styles.reply} 
                     name="reply" placeholder="Reply" 
+                    value={reply}
                     onChange={(e)=> setReply(e.target.value)}
                 />
                 <button className={styles.post} onClick={()=> handleReply(comment._id)}>Send</button>

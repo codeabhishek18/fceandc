@@ -37,10 +37,18 @@ const Progress = ({batchData, level, assessments, getBatch}) =>
 
     const addZoomLink = async () =>
     {
-        const url = `/api/links/zoom/${batchData._id}`
-        await axios.post(url, {link : zoomLink})
-        setShowZlink(false)
-        setZoomLink('');
+        try
+        {
+            const url = `/api/links/zoom/${batchData._id}`
+            const response = await axios.post(url, {link : zoomLink})
+            toast.success(response.data.message);
+            setShowZlink(false)
+            setZoomLink('');
+        }
+        catch(error)
+        {
+            toast.error(error.message);
+        }
     }
 
     const handleBatchAccess = async () =>
@@ -84,8 +92,8 @@ const Progress = ({batchData, level, assessments, getBatch}) =>
                     <button className={styles.connect} onClick={()=> setShowWlink(true)}>Add link</button>}
                 </div>
                {showwlink && <div className={styles.addlink}>
-                    <input className={styles.link} placeholder='add whatsapp link' value={whatsapplink} onChange={(e)=> setWhatsapplink(e.target.value)}/>
-                    <button className={styles.button} onClick={addWhatsappLink}>Add</button>
+                    <input className={styles.link} placeholder='Whatsapp link' value={whatsapplink} onChange={(e)=> setWhatsapplink(e.target.value)}/>
+                    <button className={styles.button} onClick={addWhatsappLink}>Update</button>
                 </div>}
                 <div className={styles.group}>
                     <p className={styles.groupTitle}>Zoom link</p>
@@ -93,8 +101,8 @@ const Progress = ({batchData, level, assessments, getBatch}) =>
                     <button className={styles.connect} onClick={()=> setShowZlink(true)}>Add link</button>}  
                 </div>
                 {showzlink && <div className={styles.addlink}>
-                    <input className={styles.link} placeholder='add zoom link' value={zoomLink} onChange={(e)=> setZoomLink(e.target.value)}/>
-                    <button className={styles.button} onClick={addZoomLink}>Add</button>
+                    <input className={styles.link} placeholder='Zoom link' value={zoomLink} onChange={(e)=> setZoomLink(e.target.value)}/>
+                    <button className={styles.button} onClick={addZoomLink}>Update</button>
                 </div>}
             </div>
 

@@ -27,7 +27,7 @@ body
 {
   --primary-color: #152a41;
   --primary-bg: #0B192C;
-  --secondary-color: rgb(221, 221, 221);
+  --secondary-color: white;
   --action-color: #cca704;
   --box-shadow: 
     2px 2px 5px rgba(0, 0, 0, 0.1),

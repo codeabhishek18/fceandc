@@ -4,12 +4,9 @@ import { useEffect, useState } from 'react'
 import styles from './forum.module.css'
 import axios from 'axios'
 import { usePathname, useRouter } from 'next/navigation'
-import ForumPost from '@/app/components/forumPost/ForumPost'
 import ForumSearchbar from '@/app/components/forumSearchbar/ForumSearchbar'
 import PopularCard from '@/app/components/popularCard/PopularCard'
 import DiscussionCard from '@/app/components/discussionCard/DiscussionCard'
-import { useSession } from 'next-auth/react'
-import { CircularProgress } from '@mui/material'
 import Loading from '@/app/components/loading/Loading'
 
 const Forum = () =>
@@ -68,10 +65,8 @@ const Forum = () =>
     return(
         <div className={styles.wrapper}>
             {discussions ? 
-            <div className={styles.container}>
-                {/* <ForumPost/>
-                
-                 */}
+            <div className={styles.container}> 
+                {discussions.length > 0 ?
                 <div className={styles.discussions}>
                     <div className={styles.query}>
                         <ForumSearchbar handleChange={handleChange} searchQuery={searchQuery} getDiscussions={getDiscussions}/>
@@ -80,7 +75,10 @@ const Forum = () =>
                     <div className={styles.discussionsReply}>
                         <DiscussionCard discussions={discussions} getDiscussions={getDiscussions} getTopics={getTopics}/>
                     </div> 
-                </div>
+                </div> :
+                <div className={styles.noDiscussions}>
+                    No Discussions Posted
+                </div>}
             </div> : 
             <Loading/>}
         </div>

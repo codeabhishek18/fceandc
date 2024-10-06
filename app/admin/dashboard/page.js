@@ -38,7 +38,7 @@ const Dashboard = () =>
         {
             const url = `/api/course`
             const response = await axios.get(url);
-            setCourses(response.data.courses);
+            setCourses(response.data);
         }
         catch(error)
         {

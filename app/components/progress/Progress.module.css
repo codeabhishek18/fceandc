@@ -166,24 +166,28 @@
 {
     border-radius: 5px;
     border: 0;
+    font-size: 12px;
+    color: black;
 }
 
 .link
 {
     width: 100%;
+    padding: 0 5px;
 }
 
 .button
 {
-    border: 1px solid var(--primary-color);
-    color: var(--primary-color);
+    border: 1px solid white;
+    color: white;
     margin: 0;
+    padding: 0 7.5px;
 }
 
 .button:hover
 {
-    background-color: var(--primary-color);
-    color: var(--secondary-color);
+    background-color: var(--action-color);
+    border: 1px solid var(--action-color);;
     cursor: pointer;
 }
 

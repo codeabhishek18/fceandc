@@ -79,4 +79,9 @@
     {
         display: none;
     }    
+
+    .user
+    {
+        width: calc(100% - 40px);
+    }
 }

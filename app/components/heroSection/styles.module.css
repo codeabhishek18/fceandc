@@ -109,6 +109,11 @@
 
 @media screen and (max-width: 450px)
 {
+    .header
+    {
+        margin-top: 75px;
+    }
+
     .subHeading
     {
         width: 100%;

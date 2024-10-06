@@ -65,20 +65,25 @@ const Forum = () =>
         setTopics(response.data);
     }
 
+    console.log(discussions);
+
     return(
         <div className={styles.wrapper}>
-            {discussions ? <div className={styles.container}>
+            {discussions ? 
+            <div className={styles.container}>
                 <ForumPost getDiscussions={getDiscussions} getTopics={getTopics}/>
-                
-                <div className={styles.discussions}>
-                <div className={styles.query}>
+                {discussions.length > 0 ? <div className={styles.discussions}>
+                    <div className={styles.query}>
                         <ForumSearchbar handleChange={handleChange} searchQuery={searchQuery} getDiscussions={getDiscussions}/>
                         <PopularCard handleChange={handleChange} getTopics={getTopics} topics={topics}/>
                     </div>
                     <div className={styles.discussionsReply}>
                         <DiscussionCard discussions={discussions} getDiscussions={getDiscussions} getTopics={getTopics}/>
                     </div> 
-                </div>
+                </div>: 
+                <div className={styles.noDiscussions}>
+                    No Discussions Posted
+                </div>}
             </div> :
             <Loading/>}
         </div>

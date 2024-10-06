@@ -142,7 +142,7 @@ const Dashboard = () =>
                 <div className={styles.group}>
                     <p className={styles.header}>Zoom</p>
                     <div className={styles.pop}>
-                    <Link href='' className={styles.route}>Connect</Link>
+                    <Link href={batchData.zoomLink} className={styles.route}>Connect</Link>
                     </div>
                 </div>
                 <div className={styles.group}>

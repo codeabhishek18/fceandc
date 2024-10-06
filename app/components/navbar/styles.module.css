@@ -82,6 +82,7 @@
 .link
 {
     color: var(--secondary-color);
+    font-weight: 500;
 }
 
 .link:hover

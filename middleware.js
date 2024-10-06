@@ -6,7 +6,7 @@ import { adminRoutes, authRoutes, userRoutes } from "./routes";
 
 export default async function middleware(req)
 {
-    const { nextUrl } = req
+    const { nextUrl } = req;
     const cookie = cookies()?.get('__Secure-authjs.session-token');
     
     let user = null;
@@ -18,8 +18,6 @@ export default async function middleware(req)
             secret: process.env.AUTH_SECRET
         })
     } 
-
-    console.log(user?.role)
 
     const userRoute = userRoutes.some((route)=> nextUrl.pathname.startsWith(route));
     const adminRoute = adminRoutes.some((route)=> nextUrl.pathname.startsWith(route));

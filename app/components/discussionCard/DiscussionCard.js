@@ -32,7 +32,7 @@ const DiscussionCard = ({discussions, getDiscussions, getTopics}) =>
         }
         catch(error)
         {
-            console.log(error);
+            toast.error(error);
         }
     }
 
@@ -40,6 +40,9 @@ const DiscussionCard = ({discussions, getDiscussions, getTopics}) =>
     {
         try
         {
+            if(!comment)
+                return toast.error('Comment cannot be empty')
+
             const url = `/api/comment/${id}`
             if(user)
             {
@@ -53,7 +56,7 @@ const DiscussionCard = ({discussions, getDiscussions, getTopics}) =>
         }
         catch(error)
         {
-            console.log(error);
+            toast.error(error.message);
         }
     }
 
@@ -80,6 +83,7 @@ const DiscussionCard = ({discussions, getDiscussions, getTopics}) =>
                             className={styles.reply} 
                             name="comment" 
                             placeholder="Reply" 
+                            value={comment}
                             onChange={(e)=> setComment(e.target.value)}
                         />
                         <button 
@@ -91,9 +95,9 @@ const DiscussionCard = ({discussions, getDiscussions, getTopics}) =>
 
                     { discussion.comments.length > 0 ?
                     <div className={styles.commentsCount} onClick={()=> setViewComment((prev) => prev  === discussion._id ? null : discussion._id)}>
-                        <p className={styles.response}>{discussion.comments?.length}  {discussion.comments?.length > 1 ? 'resposes' : 'response'}</p>
+                        <p className={styles.response}>{discussion.comments?.length}  {discussion.comments?.length > 1 ? 'responses' : 'response'}</p>
                        <Image className={styles.arrows} src={viewComment === discussion._id ? downArrow : upArrow} alt='comments'/> 
-                    </div>:<p className={styles.noCount}>Be the first one to comment</p>}
+                    </div>:<p className={styles.noCount}>Be the first one to respond</p>}
 
                     {viewComment === discussion._id &&
                     <div className={styles.replies}>

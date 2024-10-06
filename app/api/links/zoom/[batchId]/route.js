@@ -12,7 +12,7 @@ export async function POST(req, {params})
         const {batchId} = params;
         const {link} = await req.json();
         await batchInstance.updateZoomLink(batchId, link)
-        return NextResponse.json({message : 'Updated'})
+        return NextResponse.json({message : 'Zoom link updated'})
     }
     catch(error)
     {

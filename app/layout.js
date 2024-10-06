@@ -25,7 +25,7 @@ export default async function RootLayout({ children })
         <ReduxProvider>
           <body>
             {children}
-            <Toaster toastOptions={{ style:{background : '#f0f0f0', color: '#435968', boxShadow:'var(--box-shadow)', padding: '30px ', fontSize: '16px'}}}/> 
+            <Toaster toastOptions={{ style:{background : 'var(--primary-color)', color: 'var(--action-color)', boxShadow:'var(--box-shadow)', padding: '30px ', fontSize: '16px', border:'0'}}}/> 
           </body>
         </ReduxProvider>
       </SessionWrapper>

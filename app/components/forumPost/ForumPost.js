@@ -20,6 +20,12 @@ const ForumPost = ({getDiscussions, getTopics}) =>
     {
         e.preventDefault();
 
+        if(!keyList.length)
+            return toast.error('Missing keywords')
+
+        if(!title)
+            return toast.error('Discussion title cannot be empty')
+
         try
         {
             const url = '/api/forum'

@@ -8,7 +8,7 @@ import { usePathname } from 'next/navigation';
 const Lecture = () =>
 {   
     const pathname = usePathname(); 
-    const courseId =  pathname.split('/')[3]
+    const courseId =  pathname.split('/')[4]
 
     const handleSubmit = async (e) =>
     {

@@ -7,46 +7,15 @@
 {
     border-radius: 8px;
     width: 100%;
-}
-
-
-.wrapper, .container
-{
+    min-height: 80vh;
     display: flex;
     flex-direction: column;
     row-gap: 20px;
 }
 
-.createBatch
-{
-    display: flex;
-    flex-direction: column;
-    row-gap: 10px;
-    width: 300px;
-    background-color: var(--alert-color);
-    color: white;
-    padding: 20px;
-    border-radius: 5px;
-    height: 285px;
-}
-
-.createButton, .remove
-{
-    border: 0;
-    padding: 10px;
-    font-weight: 500;
-    background: black;
-    color: var(--primary-color);
-    color: white;
-    border-radius: 5px;
-    border: 0;
-}
-
-.addCourse
+.addLecture
 {
     background-color: var(--secondary-color);
-    color: black;
-    border: 0;
     padding: 10px;
     font-size: 16px;
     font-style: italic;
@@ -54,13 +23,13 @@
     cursor: pointer;
 }
 
-.addCourse:hover
+.addLecture:hover
 {
     background-color: var(--action-color);
     color: white;
 }
 
-.courses
+.course
 {
     width: 100%;
     display: flex;

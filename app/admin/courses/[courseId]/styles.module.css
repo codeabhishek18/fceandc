@@ -1,50 +1,23 @@
-.wrapper
-{
-    width: 100%;
-}
-
 .container
-{
-    border-radius: 8px;
-    width: 100%;
-    min-height: 80vh;
-    display: flex;
-    flex-direction: column;
-    row-gap: 20px;
-}
-
-.addLecture
-{
-    background-color: var(--secondary-color);
-    padding: 10px;
-    font-size: 16px;
-    font-style: italic;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-.addLecture:hover
-{
-    background-color: var(--action-color);
-    color: white;
-}
-
-.course
 {
     width: 100%;
     display: flex;
     flex-wrap: wrap;
-    column-gap: 15px;
-    row-gap: 15px;
+    column-gap: 20px;
 }
 
-.spinner
+.card
 {
-    min-height: 75vh;
-    width: 100%;
+    background-color: var(--primary-color);
+    width: calc(33.4% - 20px);
+    height: 150px;
+    border-radius: 5px;
     display: flex;
     align-items: center;
     justify-content: center;
+    color: var(--action-color);
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    box-shadow: var(--box-shadow);
 }
-
-

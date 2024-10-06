@@ -8,6 +8,7 @@ import CourseForm from '@/app/components/courseForm/CourseForm'
 import CourseCard from '@/app/components/courseCard/CourseCard'
 import { CircularProgress } from '@mui/material'
 import { toast } from 'sonner'
+import Loading from '@/app/components/loading/Loading'
 
 const Courses = () =>
 {
@@ -52,22 +53,22 @@ const Courses = () =>
 
     return(
         <div className={styles.wrapper}>
-            <div className={styles.header}>
-                <button className={styles.addCourse} onClick={()=> router.push('/admin/courses/create')}>+ Add Course</button>
-            </div>
+            
             {isLoading ? 
-            <div className={styles.spinner}>
-                <CircularProgress sx={{color: '#3e4d42'}} />
-            </div> :
-            (courses ? 
+            <Loading/> :
+         
             <div className={styles.container}>
+                <div className={styles.header}>
+                    <button className={styles.addCourse} onClick={()=> router.push('/admin/courses/create')}>+ Add Course</button>
+                </div>
+                {courses ? 
                 <div className={styles.courses}>
                     {courses?.map((course) =>
                     (
                         <CourseCard level="admin" key={course._id} course={course} removeCourse={removeCourse}/>
                     ))}
-                </div>
-            </div>: <></>)}
+                </div> : <></>}
+            </div>}
         </div>
     )
 }

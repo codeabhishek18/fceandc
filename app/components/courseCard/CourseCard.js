@@ -13,17 +13,14 @@ const CourseCard = ({level, course}) =>
             </div>
             <div className={styles.courseContent}>
                 <p className={styles.title}>{course.title}</p> 
-                <p className={styles.level}>{course.level}</p> 
                 <div className={styles.price}>
                     <span className={styles.regularprice}>${course.price}</span>
                     <span className={styles.offerprice}>${course.offerPrice}</span>
                 </div>
                 <span className={styles.discount}>{Math.floor((course.price - course.offerPrice)*100/course.price)}% off</span>
                 <div className={styles.footer}>
-                    <p className={styles.lecture}>{course.lectures.length} lectures</p>
-                    {level !== 'admin' ? 
-                    <button className={styles.explore} onClick={()=> router.push(`/courses/${course.id}`)}>View</button> :
-                    <button className={styles.explore} onClick={()=> router.push(`/admin/courses/${course.id}`)}>View lectures</button>}
+                    <p className={styles.lecture}>{course.lectures.length} lectures</p>           
+                    <button className={styles.explore} onClick={()=> level === 'admin' ? router.push(`/admin/courses/${course.id}`) : router.push(`/courses/${course.id}`)}>View</button> 
                 </div>
             </div>
         </div>

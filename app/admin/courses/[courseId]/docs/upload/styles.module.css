@@ -1,0 +1,78 @@
+
+
+.wrapper, .container
+{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.container
+{
+    width: 600px;
+    background-color: var(--primary-color);
+    box-shadow: var(--box-shadow);
+    row-gap: 10px;
+    border-radius: 5px;
+    padding: 20px;
+}
+
+.header
+{
+    width: 100%;
+    background-color: var(--primary-bg);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 50px;
+    color: white;
+}
+
+.upload
+{
+    height: 75px;
+    width: fit-content;
+    cursor: pointer;
+}
+
+.files
+{
+    width: 100%;
+    min-height: 150px;
+    position: relative;
+}
+
+.noFile
+{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+}
+
+.fileList
+{
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
+}
+
+.file
+{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: var(--primary-bg);
+    padding: 10px;
+    border-radius: 5px;
+    color: white;
+}
+
+.remove
+{
+    height: 15px;
+    width: fit-content;
+    cursor: pointer;
+}

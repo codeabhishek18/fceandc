@@ -25,7 +25,6 @@ const Login = () =>
     const [ isError, setError ] = useState(false);
     const [ successMessage, setSuccessMessage ] = useState('')
     const [ success, setSuccess ] = useState(false);
-    const [ isLoading, setIsLoading ] = useState(false);
     const searchParams = useSearchParams();
     const router = useRouter();
     const callbackUrl = searchParams.get('callbackUrl') || '/dashboard'
@@ -74,7 +73,6 @@ const Login = () =>
 
         setError(false)
         setErrorMessage('');
-        setIsLoading(true)
 
         signIn('credentials', 
         {
@@ -82,7 +80,6 @@ const Login = () =>
             password: formData.get('password'),
             callbackUrl
         })
-        setIsLoading(false);
     }
 
     return(
@@ -107,13 +104,9 @@ const Login = () =>
                             <p className={styles.successMessage}>{successMessage}</p>
                         </div>}
                         <button className={styles.submit} type='submit'>Login</button>
-                        {isLoading &&
-                        <div className={styles.spinner}>
-                            <CircularProgress sx={{color: '#D4313D'}} />
-                        </div>}
                     </form>
                     <p className={styles.option}>or</p>
-                    <GoogleAuth setIsLoading={setIsLoading}/>
+                    <GoogleAuth/>
                 </div>
                 <p className={styles.noaccount} onClick={()=> router.push('/signup')}>Don't have an account? <span className={styles.link}>Sign up</span></p>
            </div>

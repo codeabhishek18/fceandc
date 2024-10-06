@@ -64,9 +64,7 @@ const Forum = () =>
         const response = await axios(url);
         setTopics(response.data);
     }
-
-    console.log(discussions);
-
+    
     return(
         <div className={styles.wrapper}>
             {discussions ? 

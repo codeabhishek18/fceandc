@@ -4,16 +4,14 @@ import google from '@/assets/google.png'
 import { signIn } from 'next-auth/react'
 import { usePathname } from 'next/navigation'
 
-const GoogleAuth = ({setIsLoading}) =>
+const GoogleAuth = () =>
 {
     const pathname = usePathname();
     const callbackUrl = pathname || '/dashboard'
 
     const handleClick = () =>
     {
-        setIsLoading(true);
         signIn('google', { callbackUrl });
-        setIsLoading(false);
     }
 
     return(

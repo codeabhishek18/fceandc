@@ -3,13 +3,23 @@
     width: calc(33.3% - 10px);
     border-radius: 5px;
     padding: 20px;
-    display: flex;
-    flex-direction: column;
-    row-gap: 15px;
-    justify-content: space-between;
     background-color: var(--primary-color);
     box-shadow: var(--box-shadow);
     color: white;
+}
+
+.displayPicture
+{
+    height: 200px;
+    width: fit-content;
+}
+
+.details, .container
+{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    row-gap: 10px;
 }
 
 .title

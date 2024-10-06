@@ -17,7 +17,7 @@ const Mentors = () =>
     {
         const url = `/api/mentor`
         const response = await axios.get(url);
-        setMentors(response.data.mentors);
+        setMentors(response.data);
     }
 
     useEffect(()=>

@@ -13,6 +13,7 @@ import { toast } from 'sonner'
 import Loading from '../components/loading/Loading'
 import { FormatDate } from '@/utility/FormatDate'
 import deleteIcon from '@/assets/delete.png'
+import Link from 'next/link'
 
 const Checkout = () =>
 {
@@ -21,6 +22,7 @@ const Checkout = () =>
     const { data, status } = useSession();
     const [ batches, setBatches ] = useState(null);
     const [ selectedBatch, setSelectedBatch ] = useState(false);
+    const [ restrictUser, setRestrictUser ] = useState(false);
 
     useEffect(()=>
     {
@@ -37,6 +39,16 @@ const Checkout = () =>
             getCourse(courseId);
     },[])
 
+    useEffect(()=>
+    {
+        if(batches && status === 'authenticated')
+        {
+            const isUser = batches.map((batch)=> batch.enrollments).reduce((acc, cur) =>  [...acc, ...cur],[]).find((enrollment)=> enrollment.user === data.user.id)
+            if(isUser)
+                setRestrictUser(true)
+        }
+    },[batches, status])
+
     const getCourse = async (courseId) =>
     {
         try
@@ -44,8 +56,10 @@ const Checkout = () =>
             setIsLoading(true);
             const url = `/api/course/${courseId}`
             const response = await axios.get(url);
-            const batches = response.data.batches.filter((batch) => batch.status !== 'Completed');
-            setBatches(batches);
+            const completedBatches = response.data.batches.filter((batch) => batch.status !== 'Completed');
+
+            
+            setBatches(completedBatches);
             setCourse(response.data);
             setIsLoading(false);
         }
@@ -61,6 +75,13 @@ const Checkout = () =>
         localStorage.removeItem('selectedCourse');
         setCourse(null);
     }
+
+    if(restrictUser)
+        return(
+        <div className={styles.cartWrapper}>
+            <p>You have already enrolled</p>
+            <Link href='/dashboard' className={styles.dashboard}>Go to Dashboard</Link>
+        </div>)
 
     return(
         <div className={styles.wrapper}>
@@ -106,7 +127,7 @@ const Checkout = () =>
                     </div>
                 </div>}
                 
-            </div>: <div className={styles.cartWrapper}>Cart is empty</div>)}
+            </div> : <div className={styles.cartWrapper}>Cart is empty</div>)}
             <Footer/>
         </div>
     )

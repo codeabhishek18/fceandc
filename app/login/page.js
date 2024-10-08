@@ -93,6 +93,7 @@ const Login = () =>
                     <form className={styles.form} onSubmit={handleSubmit}>
                         <TextField className={styles.inputs} size='small' label="Email" type="text" name="email" variant='filled'/>
                         <TextField className={styles.inputs} size='small' label="Password" type="password" name="password" variant='filled'/>
+                        {/* <p className={styles.forgotPassword} onClick={()=> router.push('/reset-password')}>Forgot password?</p> */}
                         {isError && 
                         <div className={styles.error}>
                             <Image className={styles.erroricon} src={erroricon} alt='error'/>

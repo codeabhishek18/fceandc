@@ -96,8 +96,6 @@ const Dashboard = () =>
         <Loading/>   
     )
 
-    console.log(batchData)
-
     return(
         <div onClick={()=> setActiveAgenda(-1)} className={styles.wrapper}>
 
@@ -142,7 +140,7 @@ const Dashboard = () =>
                 <div className={styles.group}>
                     <p className={styles.header}>Zoom</p>
                     <div className={styles.pop}>
-                    <Link href={batchData.zoomLink} className={styles.route}>Connect</Link>
+                    <Link href={batchData.zoomLink ? batchData.zoomLink : ''} className={styles.route}>Connect</Link>
                     </div>
                 </div>
                 <div className={styles.group}>

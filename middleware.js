@@ -52,6 +52,7 @@ export default async function middleware(req)
     
 }
 
-export const config = {
+export const config = 
+{
     matcher: ['/((?! .+\\. [\\w]+$ |_next).*)', '/', '/(api|trpc) (.*)']
 } 

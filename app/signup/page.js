@@ -19,6 +19,7 @@ const Signup = () =>
     const [ error, setError ] = useState(false);
     const [ successMessage, setSuccessMessage ] = useState('')
     const [ success, setSuccess ] = useState(false);
+    const [ isLoading, setIsLoading ] = useState(false);
     const router = useRouter();
 
     const handleSubmit = async (e) =>

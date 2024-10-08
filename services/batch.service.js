@@ -37,7 +37,7 @@ class batchService
         } 
         catch(error)
         {
-            throw new Error('Failed to fetch batches')
+            throw error
         }
     }
 
@@ -70,7 +70,7 @@ class batchService
     {
         try
         {
-            const batches = await Batch.find({})
+            const batches = await Batch.find()
             .populate({path: 'course', model: Course})
             .populate({path: 'mentor', model: Mentor});
             return batches

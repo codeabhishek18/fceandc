@@ -24,6 +24,7 @@ const userSchema = new Schema({
         type: Schema.Types.ObjectId,
         ref: 'Enrollment'
     }],
+    otp: Number,
     chat:
     [{
         type: Schema.Types.ObjectId,

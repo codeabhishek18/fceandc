@@ -23,6 +23,20 @@ class userService
         }
     }
 
+    async resetPassword(userId, password)
+    {
+        try
+        {
+            const hashedPassword = await this.hashPassword(password);
+            await User.findByIdAndUpdate(userId, {$set: {password: hashedPassword}});
+            return
+        }
+        catch(error)
+        {
+            throw error
+        }
+    }
+
     async googleAuth(name, email, googleId)
     {
         try
@@ -136,6 +150,19 @@ class userService
     {
         const response = await bcrypt.compare(userPassword, dbPassword)
         return response
+    }
+
+    async updateOTP(userId, otp)
+    {
+        try
+        {
+            await User.findByIdAndUpdate(userId, {$set: {otp}});
+            
+        }
+        catch(error)
+        {
+            throw error
+        }
     }
 
     async updateChat(userId, chatId)

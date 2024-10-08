@@ -70,6 +70,8 @@ const Batch = () =>
     //     }
     // }
 
+    console.log(batch?.enrollments)
+
     return(
         <div className={styles.wrapper}>
             {isLoading ?
